@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 16:51:21 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/12 12:36:38 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/13 13:05:18 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ void	initialize_variables(t_cub3d *cub3d)
 	cub3d->map_info.C[0] = -1;
 	cub3d->map_info.C[1] = -1;
 	cub3d->map_info.C[2] = -1;
-	cub3d->map_info.map_height = -1;
+	cub3d->map_info.floor_color = -1;
+	cub3d->map_info.ceiling_color = -1;
+	cub3d->map_info.height = -1;
 }
 
 void	get_rgb(char **line, t_cub3d *cub3d)
@@ -42,12 +44,14 @@ void	get_rgb(char **line, t_cub3d *cub3d)
 		cub3d->map_info.F[0] = ft_atoi(splited_line[0]);
 		cub3d->map_info.F[1] = ft_atoi(splited_line[1]);
 		cub3d->map_info.F[2] = ft_atoi(splited_line[2]);
+		rgb_to_hexadecimal(cub3d);
 	}
 	else if (i == 3 && line[0][0] == 'C')
 	{
 		cub3d->map_info.C[0] = ft_atoi(splited_line[0]);
 		cub3d->map_info.C[1] = ft_atoi(splited_line[1]);
 		cub3d->map_info.C[2] = ft_atoi(splited_line[2]);
+		rgb_to_hexadecimal(cub3d);
 	}
 	else
 		cub3d->map_info.error = 1;

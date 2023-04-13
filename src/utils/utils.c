@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 11:01:20 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/12 22:35:32 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/13 12:46:02 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,30 +24,10 @@ void	free_split(char **split)
 	free(split);
 }
 
-void	decimalToHexadecimal(int decimalNum)
+void	rgb_to_hexadecimal(t_cub3d *cub3d)
 {
-	int		i;
-	int		remainder;
-	char	hexNum[100];
-
-	i = 0;
-	while (decimalNum != 0)
-	{
-		remainder = decimalNum % 16;
-		if (remainder < 10)
-		{
-			hexNum[i] = remainder + 48;
-		}
-		else
-		{
-			hexNum[i] = remainder + 55;
-		}
-		i++;
-		printf("\n1");
-		decimalNum /= 16;
-	}
-	printf("Hexadecimal number: ");
-	i = 0;
-	while (hexNum[i])
-		printf("%c", hexNum[i++]);
+	cub3d->map_info.floor_color = (cub3d->map_info.F[0] << 16)
+		+ (cub3d->map_info.F[1] << 8) + cub3d->map_info.F[2];
+	cub3d->map_info.ceiling_color = (cub3d->map_info.C[0] << 16)
+		+ (cub3d->map_info.C[1] << 8) + cub3d->map_info.C[2];
 }

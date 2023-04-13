@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 15:43:30 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/12 12:50:09 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/13 12:42:27 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ int	main(int ac, char **av)
 	cub3d = (t_cub3d *)malloc(sizeof(t_cub3d));
 	if (check(ac, av, cub3d))
 		return (0);
-	draw(cub3d);
+	game(cub3d);
 }
