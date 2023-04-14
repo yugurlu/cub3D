@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 12:39:11 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/13 20:59:51 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/14 17:21:40 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void game(t_cub3d *cub3d)
 	cub3d->map_info.width = 1320;
 	cub3d->map_info.height = 800;
 	cub3d->assets.size = 64;
+	floor_and_ceiling(cub3d);
 	mlx_loop_hook(cub3d->mlx.mlx_init, &draw, cub3d);
 	mlx_loop(cub3d->mlx.mlx_init);
 }

@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 15:43:54 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/13 21:36:48 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/14 17:22:01 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,15 @@ typedef struct s_mlx
 	void		*mlx_init;
 	void		*mlx_window;
 	void		*mlx_img;
-	void		*mlx_img2;
+	void		*mlx_minimap;
 	int			*mlx_data;
+	int			*mlx_minimap_data;
 	int			bits_per_pixel;
 	int			size_line;
 	int			endian;
+	int			minimap_bpp;
+	int			minimap_size_line;
+	int			minimap_endian;
 }				t_mlx;
 
 typedef struct s_map
@@ -64,11 +68,16 @@ typedef struct s_assets
 	void		*cloud;
 }				t_assets;
 
+typedef struct s_game
+{
+}				t_game;
+
 typedef struct s_cub3d
 {
 	t_map		map_info;
 	t_mlx		mlx;
 	t_assets	assets;
+	t_game		game;
 }				t_cub3d;
 
 void			game(t_cub3d *cub3d);
@@ -81,6 +90,7 @@ void			get_height(t_cub3d *cub3d);
 int				wall_check(t_cub3d *cub3d);
 int				value_check(t_cub3d *cub3d);
 int				character_check(t_cub3d *cub3d);
+void			floor_and_ceiling(t_cub3d *cub3d);
 void			rgb_to_hexadecimal(t_cub3d *cub3d);
 int				check(int ac, char **av, t_cub3d *cub3d);
 #endif
