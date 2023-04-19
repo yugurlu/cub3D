@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 15:43:54 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/14 17:22:01 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/19 22:16:46 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,13 @@
 # include "gnl/get_next_line.h"
 # include "libft/libft.h"
 # include "mlx/mlx.h"
+# include <math.h>
 # include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+# include <time.h> // bunu çıkar
 
 # define RED "\x1b[31m"
 
@@ -70,6 +73,32 @@ typedef struct s_assets
 
 typedef struct s_game
 {
+	double		posX;
+	double		posY;
+	double		dirX;
+	double		dirY;
+	double		planeX;
+	double		planeY;
+	double		cameraX;
+	double		rayDirX;
+	double		rayDirY;
+	double		deltaDistX;
+	double		deltaDistY;
+	double		sideDistX;
+	double		sideDistY;
+	double		perpWallDist;
+	double fps;
+	int			mapX;
+	int			mapY;
+	int			stepX;
+	int			stepY;
+	int			wall;
+	int			side;
+	int			drawStart;
+	int			drawEnd;
+
+
+	double time;
 }				t_game;
 
 typedef struct s_cub3d
@@ -88,6 +117,7 @@ void			free_split(char **split);
 void			fill_map(t_cub3d *cub3d);
 void			get_height(t_cub3d *cub3d);
 int				wall_check(t_cub3d *cub3d);
+void			ray_casting(t_cub3d *cub3d);
 int				value_check(t_cub3d *cub3d);
 int				character_check(t_cub3d *cub3d);
 void			floor_and_ceiling(t_cub3d *cub3d);
