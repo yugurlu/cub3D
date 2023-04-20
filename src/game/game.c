@@ -6,11 +6,21 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 12:39:11 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/19 21:53:15 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/20 09:54:12 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
+
+void	set_variables(t_cub3d *cub3d)
+{
+	cub3d->game.posX = 8;
+	cub3d->game.posY = 19;
+	cub3d->game.dirX = -1;
+	cub3d->game.dirY = 0;
+	cub3d->game.planeX = 0;
+	cub3d->game.planeY = -0.66;
+}
 
 void game(t_cub3d *cub3d)
 {
@@ -23,6 +33,8 @@ void game(t_cub3d *cub3d)
 	cub3d->assets.size = 64;
 	cub3d->game.time = clock();
 	//floor_and_ceiling(cub3d);
+	set_variables(cub3d);
 	mlx_loop_hook(cub3d->mlx.mlx_init, &draw, cub3d);
+	mlx_hook(cub3d->mlx.mlx_window, 2, 1 << 0 ,&control, cub3d);
 	mlx_loop(cub3d->mlx.mlx_init);
 }

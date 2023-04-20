@@ -18,6 +18,7 @@ SRC = gnl/get_next_line.c \
     src/game/game.c \
     src/game/draw.c \
     src/game/ray_casting.c \
+    src/game/control.c \
 
 INCLUDES = libft/libft.a mlx/libmlx.a
 

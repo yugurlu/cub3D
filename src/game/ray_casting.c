@@ -6,21 +6,11 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 13:02:58 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/19 23:33:51 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/20 09:50:06 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
-
-void	set_variables(t_cub3d *cub3d)
-{
-	cub3d->game.posX = 8;
-	cub3d->game.posY = 19;
-	cub3d->game.dirX = -1;
-	cub3d->game.dirY = 0;
-	cub3d->game.planeX = 0;
-	cub3d->game.planeY = -0.66;
-}
 
 void	wall(t_cub3d *cub3d)
 {
@@ -123,7 +113,6 @@ void	ray_casting(t_cub3d *cub3d)
 	int	x;
 
 	x = 0;
-	set_variables(cub3d);
 	while (x < 1920)
 	{
 		cub3d->game.cameraX = 2 * x / (double)1920 - 1;

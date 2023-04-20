@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 15:43:54 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/19 22:16:46 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/20 09:44:54 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,12 @@
 # include "gnl/get_next_line.h"
 # include "libft/libft.h"
 # include "mlx/mlx.h"
-# include <math.h>
 # include <fcntl.h>
+# include <math.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include <unistd.h>
-
 # include <time.h> // bunu çıkar
+# include <unistd.h>
 
 # define RED "\x1b[31m"
 
@@ -87,7 +86,7 @@ typedef struct s_game
 	double		sideDistX;
 	double		sideDistY;
 	double		perpWallDist;
-	double fps;
+	double		fps;
 	int			mapX;
 	int			mapY;
 	int			stepX;
@@ -97,8 +96,7 @@ typedef struct s_game
 	int			drawStart;
 	int			drawEnd;
 
-
-	double time;
+	double		time;
 }				t_game;
 
 typedef struct s_cub3d
@@ -120,6 +118,7 @@ int				wall_check(t_cub3d *cub3d);
 void			ray_casting(t_cub3d *cub3d);
 int				value_check(t_cub3d *cub3d);
 int				character_check(t_cub3d *cub3d);
+int				*control(int key, t_cub3d *cub3d);
 void			floor_and_ceiling(t_cub3d *cub3d);
 void			rgb_to_hexadecimal(t_cub3d *cub3d);
 int				check(int ac, char **av, t_cub3d *cub3d);
