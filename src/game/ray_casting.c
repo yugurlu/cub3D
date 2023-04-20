@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 13:02:58 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/20 09:50:06 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/20 10:20:46 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void fps(t_cub3d *cub3d)
 	end = clock();
 	timeFrame = ((double) (end - cub3d->game.time)) / CLOCKS_PER_SEC;
 	timeFrame = 1.0 / timeFrame;
-	printf("FPS: %f\n", timeFrame);
+	//printf("FPS: %f\n", timeFrame);
 	cub3d->game.time = end;
 	cub3d->game.fps = timeFrame;
 }

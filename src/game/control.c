@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 09:42:25 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/20 10:07:50 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/20 10:26:22 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int *control(int key, t_cub3d *cub3d)
 {
 	(void)cub3d;
-	printf("key: %d", key);
 	if(key == 13)
 	{
 		cub3d->game.posX += cub3d->game.dirX * 0.1;
