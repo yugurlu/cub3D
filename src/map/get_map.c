@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 16:51:21 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/13 13:05:18 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/20 16:36:11 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void	parse_line(char *line, t_cub3d *cub3d)
 				|| ft_strncmp(splited_line[0], "C", 1))
 			get_rgb(splited_line, cub3d);
 	}
+	free_split(splited_line);
 }
 
 int	get_map(t_cub3d *cub3d)

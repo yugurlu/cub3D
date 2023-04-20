@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 15:43:54 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/20 09:44:54 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/20 16:45:22 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ typedef struct s_mlx
 {
 	void		*mlx_init;
 	void		*mlx_window;
-	void		*mlx_img;
+	void		*mlx_object;
+	int			*mlx_object_data;
 	void		*mlx_minimap;
-	int			*mlx_data;
 	int			*mlx_minimap_data;
 	int			bits_per_pixel;
 	int			size_line;
@@ -39,6 +39,8 @@ typedef struct s_mlx
 	int			minimap_bpp;
 	int			minimap_size_line;
 	int			minimap_endian;
+	void *mlx_fc;
+	int *mlx_fc_data;
 }				t_mlx;
 
 typedef struct s_map
@@ -121,5 +123,6 @@ int				character_check(t_cub3d *cub3d);
 int				*control(int key, t_cub3d *cub3d);
 void			floor_and_ceiling(t_cub3d *cub3d);
 void			rgb_to_hexadecimal(t_cub3d *cub3d);
+int				*close_window(int key, t_cub3d *cub3d);
 int				check(int ac, char **av, t_cub3d *cub3d);
 #endif

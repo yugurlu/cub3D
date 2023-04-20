@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 11:51:01 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/13 13:05:18 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/20 16:35:44 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	fill_map(t_cub3d *cub3d)
 			free(line);
 			line = get_next_line(fd);
 		}
+		if (line)
+			free(line);
 		line = get_next_line(fd);
 	}
 	close(fd);

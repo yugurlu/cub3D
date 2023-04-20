@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 11:18:40 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/13 13:05:18 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/20 16:29:24 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,12 @@ void	get_height(t_cub3d *cub3d)
 			}
 			cub3d->map_info.height = height;
 			close(fd);
+			free(line);
 			return ;
 		}
 		free(line);
 		line = get_next_line(fd);
 	}
-	close(fd);
+	free(line);
+	getchar();
 }

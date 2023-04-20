@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 13:02:58 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/20 12:01:59 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/20 16:41:59 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	view(t_cub3d *cub3d, int x)
 	start = cub3d->game.drawStart;
 	while (start < cub3d->game.drawEnd)
 	{
-		cub3d->mlx.mlx_data[start * 1920 + x] = 0x000099;
+		cub3d->mlx.mlx_object_data[start * 1920 + x] = 0x00FF00;
 		start++;
 	}
 }
