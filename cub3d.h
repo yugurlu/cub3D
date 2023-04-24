@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 15:43:54 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/20 16:45:22 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/24 12:29:56 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,6 @@ typedef struct s_game
 	double		sideDistX;
 	double		sideDistY;
 	double		perpWallDist;
-	double		fps;
 	int			mapX;
 	int			mapY;
 	int			stepX;
@@ -97,8 +96,6 @@ typedef struct s_game
 	int			side;
 	int			drawStart;
 	int			drawEnd;
-
-	double		time;
 }				t_game;
 
 typedef struct s_cub3d

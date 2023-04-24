@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 13:01:41 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/20 16:54:42 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/24 12:26:48 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,26 +133,12 @@ void clear_img(t_cub3d *cub3d)
 		mlx_destroy_image(cub3d->mlx.mlx_init, cub3d->mlx.mlx_object);
 		cub3d->mlx.mlx_object = mlx_new_image(cub3d->mlx.mlx_init, 1920, 1080);
 		cub3d->mlx.mlx_object_data = (int *)mlx_get_data_addr(cub3d->mlx.mlx_object, &cub3d->mlx.bits_per_pixel, &cub3d->mlx.size_line, &cub3d->mlx.endian);
-		//mlx_destroy_image(cub3d->mlx.mlx_init, cub3d->mlx.mlx_minimap);
-		//mlx_destroy_image(cub3d->mlx.mlx_init, cub3d->assets.character);
-		//mlx_destroy_image(cub3d->mlx.mlx_init, cub3d->assets.cross);
-		//mlx_destroy_image(cub3d->mlx.mlx_init, cub3d->assets.cloud);
 	}
 }
 
 int	draw(t_cub3d *cub3d)
 {
 	clear_img(cub3d);
-	floor_and_ceiling(cub3d);
-
-	//mlx_clear_window(cub3d->mlx.mlx_init, cub3d->mlx.mlx_window);
-	//clouds(cub3d);
-	//player_crosshair(cub3d);
-	mlx_put_image_to_window(cub3d->mlx.mlx_init, cub3d->mlx.mlx_window, cub3d->mlx.mlx_fc, 0, 0);
 	ray_casting(cub3d);
-	mlx_put_image_to_window(cub3d->mlx.mlx_init, cub3d->mlx.mlx_window,
-			cub3d->mlx.mlx_object, 0, 0);
-	//mlx_string_put(cub3d->mlx.mlx_init, cub3d->mlx.mlx_window, 10, 15, 0xFFFFFF, ft_itoa(cub3d->game.fps));
-	//mini_map(cub3d);
 	return (0);
 }

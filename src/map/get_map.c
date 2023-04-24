@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 16:51:21 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/20 16:36:11 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/24 19:34:34 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,21 +61,26 @@ void	get_rgb(char **line, t_cub3d *cub3d)
 void	parse_line(char *line, t_cub3d *cub3d)
 {
 	char	**splited_line;
+	char 	**back_slash_n;
 
 	splited_line = ft_split(line, ' ');
 	if (splited_line && splited_line[0] && splited_line[1] && !splited_line[2])
 	{
+		back_slash_n = ft_split(splited_line[1], '\n');
 		if (ft_strncmp(splited_line[0], "NO", 2) == 0)
-			cub3d->map_info.NO = ft_strdup(splited_line[1]);
+			cub3d->map_info.NO = ft_strdup(back_slash_n[0]);
 		else if (ft_strncmp(splited_line[0], "SO", 2) == 0)
-			cub3d->map_info.SO = ft_strdup(splited_line[1]);
+			cub3d->map_info.SO = ft_strdup(back_slash_n[0]);
 		else if (ft_strncmp(splited_line[0], "WE", 2) == 0)
-			cub3d->map_info.WE = ft_strdup(splited_line[1]);
+			cub3d->map_info.WE = ft_strdup(back_slash_n[0]);
 		else if (ft_strncmp(splited_line[0], "EA", 2) == 0)
-			cub3d->map_info.EA = ft_strdup(splited_line[1]);
+			cub3d->map_info.EA = ft_strdup(back_slash_n[0]);
 		else if (ft_strncmp(splited_line[0], "F", 1)
-				|| ft_strncmp(splited_line[0], "C", 1))
+				|| ft_strncmp(back_slash_n[0], "C", 1))
 			get_rgb(splited_line, cub3d);
+		free_split(back_slash_n);
+		free_split(splited_line);
+		return ;
 	}
 	free_split(splited_line);
 }

@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 09:42:25 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/20 16:36:43 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/24 12:10:24 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,18 @@ int *control(int key, t_cub3d *cub3d)
 
 	if(key == 13)
 	{
-		if(cub3d->map_info.map[(int)(cub3d->game.posX + cub3d->game.dirX * 0.1)][(int)(cub3d->game.posY)] == '0')
+		if(cub3d->map_info.map[(int)(cub3d->game.posX + cub3d->game.dirX * 0.2)][(int)(cub3d->game.posY)] == '0')
 		{
-			cub3d->game.posX += cub3d->game.dirX * 0.1;
-			cub3d->game.posY += cub3d->game.dirY * 0.1;
+			cub3d->game.posX += cub3d->game.dirX * 0.2;
+			cub3d->game.posY += cub3d->game.dirY * 0.2;
 		}
 	}
 	else if(key == 1)
 	{
-		if(cub3d->map_info.map[(int)(cub3d->game.posX - cub3d->game.dirX * 0.1)][(int)(cub3d->game.posY)] == '0')
+		if(cub3d->map_info.map[(int)(cub3d->game.posX - cub3d->game.dirX * 0.2)][(int)(cub3d->game.posY)] == '0')
 		{
-			cub3d->game.posX -= cub3d->game.dirX * 0.1;
-			cub3d->game.posY -= cub3d->game.dirY * 0.1;
+			cub3d->game.posX -= cub3d->game.dirX * 0.2;
+			cub3d->game.posY -= cub3d->game.dirY * 0.2;
 		}
 	}
 	else if (key == 0)

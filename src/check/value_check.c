@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 11:51:13 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/12 12:35:20 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/24 14:49:50 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,13 @@ int	*open_files(t_cub3d *cub3d)
 
 	fd = malloc(12);
 	fd[0] = open(cub3d->map_info.NO, R_OK);
+	printf("%s\n", cub3d->map_info.NO);
 	fd[1] = open(cub3d->map_info.SO, R_OK);
+	printf("%s\n", cub3d->map_info.SO);
 	fd[2] = open(cub3d->map_info.WE, R_OK);
+	printf("%s\n", cub3d->map_info.WE);
 	fd[3] = open(cub3d->map_info.EA, R_OK);
+	printf("%s\n", cub3d->map_info.EA);
 	return (fd);
 }
 
