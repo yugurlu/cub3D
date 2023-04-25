@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 11:51:01 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/20 16:35:44 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/25 13:37:44 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,12 @@ void	fill_map(t_cub3d *cub3d)
 	i = 0;
 	fd = open(cub3d->map_info.map_name, O_RDONLY);
 	line = get_next_line(fd);
-	if (cub3d->map_info.height != -1)
-		cub3d->map_info.map = malloc(sizeof(char *)
-				* (cub3d->map_info.height + 1));
+	if (cub3d->map_info.height == -1 || cub3d->map_info.width == 0)
+	{
+		cub3d->map_info.map = NULL;
+		return;
+	}
+	cub3d->map_info.map = malloc(sizeof(char *) * (cub3d->map_info.height + 1));
 	while (line)
 	{
 		while (line && is_mapline(line))
@@ -36,5 +39,7 @@ void	fill_map(t_cub3d *cub3d)
 			free(line);
 		line = get_next_line(fd);
 	}
+	printf("İ: %d\n", i);
+	cub3d->map_info.map[i] = NULL;
 	close(fd);
 }

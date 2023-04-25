@@ -6,20 +6,31 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 12:39:11 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/24 14:33:49 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/25 18:15:29 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
+void img(t_cub3d *cub3d)
+{
+	int x = 64;
+	int y = 64;
+	printf("\n\n%s\n\n", cub3d->map_info.NO);
+	cub3d->assets.NO = mlx_xpm_file_to_image(cub3d->mlx.mlx_init, "src/assets/wall1.xpm", &x, &y);
+	cub3d->assets.NO_data = (int *)mlx_get_data_addr(cub3d->assets.NO, &cub3d->assets.NO_bpp, &cub3d->assets.NO_size_line, &cub3d->assets.NO_endian);
+}
+
+
 void	set_variables(t_cub3d *cub3d)
 {
-	cub3d->game.posX = 8;
-	cub3d->game.posY = 19;
+	cub3d->game.posX = 3;
+	cub3d->game.posY = 6;
 	cub3d->game.dirX = -1;
 	cub3d->game.dirY = 0;
 	cub3d->game.planeX = 0;
 	cub3d->game.planeY = -0.66;
+	img(cub3d);
 }
 
 void game(t_cub3d *cub3d)

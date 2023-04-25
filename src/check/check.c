@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 16:01:41 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/24 15:06:32 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/25 12:11:11 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int	map_check(t_cub3d *cub3d)
 		printf("%sWrong formatted map!\nError\n", RED);
 		return (1);
 	}
-
 	return (0);
 }
 

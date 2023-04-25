@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 15:43:54 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/24 12:29:56 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/25 18:34:09 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include <math.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include <time.h> // bunu çıkar
 # include <unistd.h>
 
 # define RED "\x1b[31m"
@@ -39,8 +38,7 @@ typedef struct s_mlx
 	int			minimap_bpp;
 	int			minimap_size_line;
 	int			minimap_endian;
-	void *mlx_fc;
-	int *mlx_fc_data;
+	void *mlx_img;
 }				t_mlx;
 
 typedef struct s_map
@@ -64,6 +62,10 @@ typedef struct s_assets
 {
 	int			size;
 	void		*NO;
+	int 		*NO_data;
+	int NO_bpp;
+	int NO_size_line;
+	int NO_endian;
 	void		*SO;
 	void		*WE;
 	void		*EA;
@@ -88,6 +90,7 @@ typedef struct s_game
 	double		sideDistX;
 	double		sideDistY;
 	double		perpWallDist;
+	int lineHeight;
 	int			mapX;
 	int			mapY;
 	int			stepX;

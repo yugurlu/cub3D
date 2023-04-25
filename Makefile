@@ -1,8 +1,8 @@
 
 
 NAME = cub3D
-FRAEMWORKS = -framework OpenGL -framework AppKit -g
-FLAGS = -Wall -Wextra -Werror
+FRAEMWORKS = -framework OpenGL -framework AppKit
+FLAGS = -fsanitize=address -g
 
 SRC = gnl/get_next_line.c \
     gnl/get_next_line_utils.c \
@@ -23,6 +23,8 @@ SRC = gnl/get_next_line.c \
 INCLUDES = libft/libft.a mlx/libmlx.a
 
 OBJ=$(SRC:.c=.o)
+.c.o:
+	@gcc $(FLAGS) -c $< -o $@
 
 all: $(OBJ)
 	@make -C ./libft

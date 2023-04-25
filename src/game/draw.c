@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 13:01:41 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/24 12:26:48 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/25 12:05:23 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ void	floor_and_ceiling(t_cub3d *cub3d)
 		while (++x < cub3d->map_info.height)
 		{
 			if (x < cub3d->map_info.height / 2)
-				cub3d->mlx.mlx_fc_data[x * cub3d->map_info.width
+				cub3d->mlx.mlx_object_data[x * cub3d->map_info.width
 					+ y] = cub3d->map_info.ceiling_color;
 			else
-				cub3d->mlx.mlx_fc_data[x * cub3d->map_info.width
+				cub3d->mlx.mlx_object_data[x * cub3d->map_info.width
 					+ y] = cub3d->map_info.floor_color;
 		}
 	}
@@ -138,6 +138,7 @@ void clear_img(t_cub3d *cub3d)
 
 int	draw(t_cub3d *cub3d)
 {
+	//floor_and_ceiling(cub3d);
 	clear_img(cub3d);
 	ray_casting(cub3d);
 	return (0);
