@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 16:01:41 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/25 12:11:11 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/26 16:03:49 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	print_data(t_cub3d *cub3d)
 	printf("\n\n");
 	i = 0;
 	while (cub3d->map_info.map[i])
-		printf("%s", cub3d->map_info.map[i++]);
+		printf("%s\n", cub3d->map_info.map[i++]);
 }
 
 int	map_check(t_cub3d *cub3d)
@@ -35,12 +35,12 @@ int	map_check(t_cub3d *cub3d)
 	get_map(cub3d);
 	if (!cub3d->map_info.map)
 	{
-		printf("%sMap is not found!\nError\n", RED);
+		error(6);
 		return (1);
 	}
 	if (wall_check(cub3d) || character_check(cub3d))
 	{
-		printf("%sWrong formatted map!\nError\n", RED);
+		error(7);
 		return (1);
 	}
 	return (0);
@@ -62,7 +62,7 @@ int	file_check(char *file, t_cub3d *cub3d)
 		close(fd);
 		return (0);
 	}
-	printf("%sWrong map file!\nError\n", RED);
+	error(8);
 	close(fd);
 	return (1);
 }
@@ -71,10 +71,10 @@ int	check(int ac, char **av, t_cub3d *cub3d)
 {
 	if (ac != 2)
 	{
-		printf("%sWrong number of argument!s\nError\n", RED);
+		error(9);
 		return (1);
 	}
-	if (file_check(av[1], cub3d) || map_check(cub3d) /*|| value_check(cub3d)*/)
+	if (file_check(av[1], cub3d) || map_check(cub3d) || value_check(cub3d))
 		return (1);
 	print_data(cub3d);
 	return (0);

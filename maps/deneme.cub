@@ -1,9 +1,9 @@
-NO ../assets/wall1.xpm
-SO ../assets/wall1.xpm
-WE ../assets/wall1.xpm
-EA ../assets/wall1.xpm
-F 0,20,0
-C 255,0,0
+NO src/assets/wall1.xpm
+SO src/assets/wall1.xpm
+WE src/assets/wall1.xpm
+EA src/assets/wall1.xpm
+F 0,2,0
+C 0,0,0
 
 111111111111111111111111111111
 110000000000001111111111

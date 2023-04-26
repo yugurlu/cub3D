@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 13:02:58 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/25 19:10:18 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/26 15:14:31 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,8 @@ void	hit(t_cub3d *cub3d) //dda algorithm
 			cub3d->game.mapY += cub3d->game.stepY;
 			cub3d->game.side = 1;
 		}
-		if(cub3d->map_info.map[cub3d->game.mapX][cub3d->game.mapY])
-		{
 		if (cub3d->map_info.map[cub3d->game.mapX][cub3d->game.mapY] == '1')
 			cub3d->game.wall = 1;
-		}
-
 	}
 }
 
@@ -85,16 +81,14 @@ void	i_dont_know_what_i_am_doing_in_this_function(t_cub3d *cub3d)
 
 void	view(t_cub3d *cub3d, int x)
 {
-	int img;
-	int imgg;
+	//int imgg;
 	int	start;
 
 	start = cub3d->game.drawStart;
-	imgg = (start - 1080 / 2 + cub3d->game.lineHeight / 2) * 1.0 * 64 / cub3d->game.lineHeight;
+	//imgg = (start - 1080 / 2 + cub3d->game.lineHeight / 2) * 1.0 * 64 / cub3d->game.lineHeight;
 	while (start < cub3d->game.drawEnd)
 	{
-		img = (int)cub3d->game.lineHeight & 64;
-		cub3d->mlx.mlx_object_data[start++ * 1920 + x] = cub3d->assets.NO_data[64 * img + imgg];
+		cub3d->mlx.mlx_object_data[start++ * 1920 + x] = 0x00FF00;
 	}
 }
 

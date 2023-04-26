@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 15:43:54 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/25 18:34:09 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/26 15:45:15 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct s_mlx
 	int			minimap_bpp;
 	int			minimap_size_line;
 	int			minimap_endian;
-	void *mlx_img;
+	void		*mlx_img;
 }				t_mlx;
 
 typedef struct s_map
@@ -62,10 +62,10 @@ typedef struct s_assets
 {
 	int			size;
 	void		*NO;
-	int 		*NO_data;
-	int NO_bpp;
-	int NO_size_line;
-	int NO_endian;
+	int			*NO_data;
+	int			NO_bpp;
+	int			NO_size_line;
+	int			NO_endian;
 	void		*SO;
 	void		*WE;
 	void		*EA;
@@ -90,7 +90,7 @@ typedef struct s_game
 	double		sideDistX;
 	double		sideDistY;
 	double		perpWallDist;
-	int lineHeight;
+	int			lineHeight;
 	int			mapX;
 	int			mapY;
 	int			stepX;
@@ -99,6 +99,8 @@ typedef struct s_game
 	int			side;
 	int			drawStart;
 	int			drawEnd;
+	int			user_x;
+	int			user_y;
 }				t_game;
 
 typedef struct s_cub3d
@@ -109,6 +111,7 @@ typedef struct s_cub3d
 	t_game		game;
 }				t_cub3d;
 
+int				error(int type);
 void			game(t_cub3d *cub3d);
 int				draw(t_cub3d *cub3d);
 int				is_mapline(char *line);
@@ -120,9 +123,9 @@ int				wall_check(t_cub3d *cub3d);
 void			ray_casting(t_cub3d *cub3d);
 int				value_check(t_cub3d *cub3d);
 int				character_check(t_cub3d *cub3d);
-int				*control(int key, t_cub3d *cub3d);
+int				control(int key, void *cub3d);
 void			floor_and_ceiling(t_cub3d *cub3d);
 void			rgb_to_hexadecimal(t_cub3d *cub3d);
-int				*close_window(int key, t_cub3d *cub3d);
+int				close_window(int key, void *cub3d);
 int				check(int ac, char **av, t_cub3d *cub3d);
 #endif

@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 11:51:13 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/24 14:49:50 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/26 15:13:56 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,16 @@ int	error(int type)
 		printf("%sMissing RGB value!\nError\n", RED);
 	else if (type == 4)
 		printf("%sRGB values must be less than 255!\nError\n", RED);
-	else
+	else if (type == 5)
 		printf("%sRGB value must be bigger than 0\nError\n", RED);
+	else if (type == 6)
+		printf("%sMap is not found!\nError\n", RED);
+	else if (type == 7)
+		printf("%sWrong formatted map!\nError\n", RED);
+	else if (type == 8)
+		printf("%sWrong map file!\nError\n", RED);
+	else if (type == 9)
+		printf("%sWrong number of argument!s\nError\n", RED);
 	return (1);
 }
 
@@ -31,15 +39,15 @@ int	*open_files(t_cub3d *cub3d)
 {
 	int	*fd;
 
-	fd = malloc(12);
+	fd = malloc(16);
 	fd[0] = open(cub3d->map_info.NO, R_OK);
-	printf("%s\n", cub3d->map_info.NO);
+	printf("%s %d\n", cub3d->map_info.NO, fd[0]);
 	fd[1] = open(cub3d->map_info.SO, R_OK);
-	printf("%s\n", cub3d->map_info.SO);
+	printf("%s %d\n", cub3d->map_info.SO, fd[1]);
 	fd[2] = open(cub3d->map_info.WE, R_OK);
-	printf("%s\n", cub3d->map_info.WE);
+	printf("%s %d\n", cub3d->map_info.WE, fd[2]);
 	fd[3] = open(cub3d->map_info.EA, R_OK);
-	printf("%s\n", cub3d->map_info.EA);
+	printf("%s %d\n", cub3d->map_info.EA, fd[3]);
 	return (fd);
 }
 

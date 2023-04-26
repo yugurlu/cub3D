@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 13:01:41 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/25 12:05:23 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/26 14:58:11 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,20 +126,15 @@ void mini_map(t_cub3d *cub3d)
 
 void clear_img(t_cub3d *cub3d)
 {
-	static int i = 0;
-
-	if (i++ > 0)
-	{
-		mlx_destroy_image(cub3d->mlx.mlx_init, cub3d->mlx.mlx_object);
-		cub3d->mlx.mlx_object = mlx_new_image(cub3d->mlx.mlx_init, 1920, 1080);
-		cub3d->mlx.mlx_object_data = (int *)mlx_get_data_addr(cub3d->mlx.mlx_object, &cub3d->mlx.bits_per_pixel, &cub3d->mlx.size_line, &cub3d->mlx.endian);
-	}
+	mlx_destroy_image(cub3d->mlx.mlx_init, cub3d->mlx.mlx_object);
+	cub3d->mlx.mlx_object = mlx_new_image(cub3d->mlx.mlx_init, 1920, 1080);
+	cub3d->mlx.mlx_object_data = (int *)mlx_get_data_addr(cub3d->mlx.mlx_object, &cub3d->mlx.bits_per_pixel, &cub3d->mlx.size_line, &cub3d->mlx.endian);
 }
 
 int	draw(t_cub3d *cub3d)
 {
-	//floor_and_ceiling(cub3d);
 	clear_img(cub3d);
+	floor_and_ceiling(cub3d);
 	ray_casting(cub3d);
 	return (0);
 }
