@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 13:02:58 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/26 15:14:31 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/27 13:02:28 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,8 @@ void	view(t_cub3d *cub3d, int x)
 	//imgg = (start - 1080 / 2 + cub3d->game.lineHeight / 2) * 1.0 * 64 / cub3d->game.lineHeight;
 	while (start < cub3d->game.drawEnd)
 	{
-		cub3d->mlx.mlx_object_data[start++ * 1920 + x] = 0x00FF00;
+		cub3d->mlx.mlx_object_data[start * 1920 + x] = cub3d->assets.NO_data[start * 64 / cub3d->game.lineHeight * 64];
+		start++;
 	}
 }
 

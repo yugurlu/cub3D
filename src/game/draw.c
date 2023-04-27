@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 13:01:41 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/26 14:58:11 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/27 13:12:07 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,10 +131,50 @@ void clear_img(t_cub3d *cub3d)
 	cub3d->mlx.mlx_object_data = (int *)mlx_get_data_addr(cub3d->mlx.mlx_object, &cub3d->mlx.bits_per_pixel, &cub3d->mlx.size_line, &cub3d->mlx.endian);
 }
 
+void move(t_cub3d *cub3d)
+{
+	double oldDirX;
+	double oldPlaneX;
+	if(cub3d->game.key_w)
+	{
+		if(cub3d->map_info.map[(int)(cub3d->game.posX + cub3d->game.dirX * 0.2)][(int)(cub3d->game.posY)] == '0')
+			cub3d->game.posX += cub3d->game.dirX * 0.2;
+		if(cub3d->map_info.map[(int)cub3d->game.posX][(int)(cub3d->game.posY + cub3d->game.dirY * 0.2)] == '0')
+			cub3d->game.posY += cub3d->game.dirY * 0.2;
+	}
+	if(cub3d->game.key_s)
+	{
+		if(cub3d->map_info.map[(int)(cub3d->game.posX - cub3d->game.dirX * 0.2)][(int)(cub3d->game.posY)] == '0')
+			cub3d->game.posX -= cub3d->game.dirX * 0.2;
+		if(cub3d->map_info.map[(int)(cub3d->game.posX)][(int)(cub3d->game.posY - cub3d->game.dirY * 0.2)] == '0')
+			cub3d->game.posY -= cub3d->game.dirY * 0.2;
+	}
+	if (cub3d->game.key_a)
+	{
+		oldDirX = cub3d->game.dirX;
+		cub3d->game.dirX = cub3d->game.dirX * cos(-0.1) - cub3d->game.dirY * sin(-0.1);
+		cub3d->game.dirY = oldDirX * sin(-0.1) + cub3d->game.dirY * cos(-0.1);
+		double oldPlaneX = cub3d->game.planeX;
+		cub3d->game.planeX = cub3d->game.planeX * cos(-0.1) - cub3d->game.planeY * sin(-0.1);
+		cub3d->game.planeY = oldPlaneX * sin(-0.1) + cub3d->game.planeY * cos(-0.1);
+	}
+	if (cub3d->game.key_d)
+	{
+		oldDirX = cub3d->game.dirX;
+		cub3d->game.dirX = cub3d->game.dirX * cos(0.1) - cub3d->game.dirY * sin(0.1);
+		cub3d->game.dirY = oldDirX * sin(0.1) + cub3d->game.dirY * cos(0.1);
+		oldPlaneX = cub3d->game.planeX;
+		cub3d->game.planeX = cub3d->game.planeX * cos(0.1) - cub3d->game.planeY * sin(0.1);
+		cub3d->game.planeY = oldPlaneX * sin(0.1) + cub3d->game.planeY * cos(0.1);
+	}
+}
+
+
 int	draw(t_cub3d *cub3d)
 {
 	clear_img(cub3d);
 	floor_and_ceiling(cub3d);
 	ray_casting(cub3d);
+	move(cub3d);
 	return (0);
 }

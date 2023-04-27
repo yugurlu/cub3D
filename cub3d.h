@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 15:43:54 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/26 15:45:15 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/27 13:13:27 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,10 @@ typedef struct s_game
 	int			drawEnd;
 	int			user_x;
 	int			user_y;
+	int			key_w;
+	int			key_s;
+	int			key_a;
+	int			key_d;
 }				t_game;
 
 typedef struct s_cub3d
@@ -123,7 +127,8 @@ int				wall_check(t_cub3d *cub3d);
 void			ray_casting(t_cub3d *cub3d);
 int				value_check(t_cub3d *cub3d);
 int				character_check(t_cub3d *cub3d);
-int				control(int key, void *cub3d);
+int				press(int key, void *cub3d);
+int				release(int key, t_cub3d *cub3d);
 void			floor_and_ceiling(t_cub3d *cub3d);
 void			rgb_to_hexadecimal(t_cub3d *cub3d);
 int				close_window(int key, void *cub3d);

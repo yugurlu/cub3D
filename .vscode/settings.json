@@ -4,6 +4,11 @@
 		"unistd.h": "c",
 		"mlx.h": "c",
 		"fcntl.h": "c",
-		"libft.h": "c"
+		"libft.h": "c",
+		"__bit_reference": "c",
+		"__string": "c",
+		"algorithm": "c",
+		"ios": "c",
+		"type_traits": "c"
 	}
 }

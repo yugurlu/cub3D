@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 12:39:11 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/26 16:23:23 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/27 13:14:14 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,8 @@ void game(t_cub3d *cub3d)
 	cub3d->assets.size = 64;
 	set_variables(cub3d);
 	mlx_loop_hook(cub3d->mlx.mlx_init, &draw, cub3d);
-	mlx_hook(cub3d->mlx.mlx_window, 2, 1L << 0 ,&control, cub3d);
+	mlx_hook(cub3d->mlx.mlx_window, 2, 1L << 0 ,&press, cub3d);
+	mlx_hook(cub3d->mlx.mlx_window, 3, 0L,&release, cub3d);
 	mlx_hook(cub3d->mlx.mlx_window, 17, 1L << 17, &close_window, cub3d);
 	mlx_loop(cub3d->mlx.mlx_init);
 }
