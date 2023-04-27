@@ -6,11 +6,18 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 18:19:07 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/20 12:15:59 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/27 13:41:25 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
+
+int	is_character(char c)
+{
+	if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
+		return (1);
+	return (0);
+}
 
 int	character_check(t_cub3d *cub3d)
 {
@@ -31,8 +38,8 @@ int	character_check(t_cub3d *cub3d)
 				|| cub3d->map_info.map[i][j] == 'W')
 			{
 				if (!((cub3d->map_info.map[i][j + 1] == '0'
-						|| cub3d->map_info.map[i][j + 1] == '1'
-					|| cub3d->map_info.map[i][j + 1] == 'N'
+							|| cub3d->map_info.map[i][j + 1] == '1'
+							|| cub3d->map_info.map[i][j + 1] == 'N'
 							|| cub3d->map_info.map[i][j + 1] == 'S'
 							|| cub3d->map_info.map[i][j + 1] == 'E'
 							|| cub3d->map_info.map[i][j + 1] == 'W'

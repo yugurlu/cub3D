@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 09:42:25 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/27 13:17:29 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/27 15:56:25 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int press(int key, void *cub3dd)
 	//double oldDirX;
 	//double oldPlaneX;
 	t_cub3d *cub3d = (t_cub3d *)cub3dd;
-	if(key == 3)
+	if(key == 13)
 		cub3d->game.key_w = 1;
 	if(key == 1)
 		cub3d->game.key_s = 1;
@@ -72,7 +72,7 @@ int press(int key, void *cub3dd)
 
 int release(int key, t_cub3d *cub3d)
 {
-	if(key == 3)
+	if(key == 13)
 		cub3d->game.key_w = 0;
 	if(key == 1)
 		cub3d->game.key_s = 0;

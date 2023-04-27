@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 12:39:11 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/27 13:14:14 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/27 16:57:38 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,20 @@ void camera(t_cub3d *cub3d)
 	}
 }
 
+void control(t_cub3d *cub3d)
+{
+	cub3d->game.key_a = 0;
+	cub3d->game.key_s = 0;
+	cub3d->game.key_d = 0;
+	cub3d->game.key_w = 0;
+}
+
 void	set_variables(t_cub3d *cub3d)
 {
 	img(cub3d);
 	user_location(cub3d);
 	camera(cub3d);
+	control(cub3d);
 }
 
 void game(t_cub3d *cub3d)
@@ -91,11 +100,10 @@ void game(t_cub3d *cub3d)
 	cub3d->mlx.mlx_object_data = (int*)mlx_get_data_addr(cub3d->mlx.mlx_object, &cub3d->mlx.bits_per_pixel, &cub3d->mlx.size_line, &cub3d->mlx.endian);
 	cub3d->map_info.width = 1920;
 	cub3d->map_info.height = 1080;
-	cub3d->assets.size = 64;
 	set_variables(cub3d);
 	mlx_loop_hook(cub3d->mlx.mlx_init, &draw, cub3d);
-	mlx_hook(cub3d->mlx.mlx_window, 2, 1L << 0 ,&press, cub3d);
-	mlx_hook(cub3d->mlx.mlx_window, 3, 0L,&release, cub3d);
+	mlx_hook(cub3d->mlx.mlx_window, 2, 0 ,&press, cub3d);
+	mlx_hook(cub3d->mlx.mlx_window, 3, 0,&release, cub3d);
 	mlx_hook(cub3d->mlx.mlx_window, 17, 1L << 17, &close_window, cub3d);
 	mlx_loop(cub3d->mlx.mlx_init);
 }
