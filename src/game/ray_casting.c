@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 13:02:58 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/30 16:19:36 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/30 17:53:48 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void	rayDist(t_cub3d *cub3d)
 	if (cub3d->rc.drawEnd >= 1080)
 		cub3d->rc.drawEnd = 1080 - 1;
 }
-
 
 void set_value(t_cub3d *cub3d)
 {

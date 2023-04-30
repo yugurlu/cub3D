@@ -6,15 +6,15 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 11:51:01 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/30 15:47:01 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/30 17:53:54 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
-void ft_strncopy(char *dest, char *src, int n)
+void	ft_strncopy(char *dest, char *src, int n)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < n)
@@ -37,7 +37,7 @@ void	fill_map(t_cub3d *cub3d)
 	if (cub3d->map.height == -1)
 	{
 		cub3d->map.map = NULL;
-		return;
+		return ;
 	}
 	cub3d->map.map = malloc(sizeof(char *) * (cub3d->map.height + 1));
 	while (line)

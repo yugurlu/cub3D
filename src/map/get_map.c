@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 16:51:21 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/30 15:47:01 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/30 17:54:24 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,11 @@ void	parse_line(char *line, t_cub3d *cub3d)
 {
 	char	**splited_line;
 	char	**back_slash_n;
+	int		i;
 
 	splited_line = ft_split(line, ' ');
-	int i = 0;
-	while(splited_line[i] != NULL)
+	i = 0;
+	while (splited_line[i] != NULL)
 		i++;
 	if (i == 2)
 	{

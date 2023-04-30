@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 16:01:41 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/30 15:47:01 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/30 17:54:44 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@ void	print_data(t_cub3d *cub3d)
 	printf("SO: %s\n", cub3d->map.SO);
 	printf("WE: %s\n", cub3d->map.WE);
 	printf("EA: %s\n", cub3d->map.EA);
-	printf("F: %d,%d,%d\n", cub3d->map.F[0], cub3d->map.F[1],
-			cub3d->map.F[2]);
-	printf("C: %d,%d,%d\n", cub3d->map.C[0], cub3d->map.C[1],
-			cub3d->map.C[2]);
+	printf("F: %d,%d,%d\n", cub3d->map.F[0], cub3d->map.F[1], cub3d->map.F[2]);
+	printf("C: %d,%d,%d\n", cub3d->map.C[0], cub3d->map.C[1], cub3d->map.C[2]);
 	printf("\n\n");
 	i = 0;
 	while (cub3d->map.map[i])

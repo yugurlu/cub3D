@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 15:43:54 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/30 16:21:46 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/30 17:53:17 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,6 @@ typedef struct s_assets
 	void		*SO;
 	void		*WE;
 	void		*EA;
-	void		*character;
-	void		*cross;
-	void		*cloud;
 }				t_assets;
 
 typedef struct s_rc
