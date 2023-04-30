@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 11:18:40 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/26 11:37:52 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/30 15:47:01 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	get_height(t_cub3d *cub3d)
 	char	*line;
 
 	height = 0;
-	fd = open(cub3d->map_info.map_name, O_RDONLY);
+	fd = open(cub3d->map.map_name, O_RDONLY);
 	line = get_next_line(fd);
 	while (line)
 	{
@@ -65,7 +65,7 @@ void	get_height(t_cub3d *cub3d)
 				free(line);
 				line = get_next_line(fd);
 			}
-			cub3d->map_info.height = height;
+			cub3d->map.height = height;
 			close(fd);
 			free(line);
 			return ;

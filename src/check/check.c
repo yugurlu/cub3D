@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 16:01:41 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/26 16:03:49 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/30 15:47:01 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,24 @@ void	print_data(t_cub3d *cub3d)
 {
 	int	i;
 
-	printf("NO: %s\n", cub3d->map_info.NO);
-	printf("SO: %s\n", cub3d->map_info.SO);
-	printf("WE: %s\n", cub3d->map_info.WE);
-	printf("EA: %s\n", cub3d->map_info.EA);
-	printf("F: %d,%d,%d\n", cub3d->map_info.F[0], cub3d->map_info.F[1],
-			cub3d->map_info.F[2]);
-	printf("C: %d,%d,%d\n", cub3d->map_info.C[0], cub3d->map_info.C[1],
-			cub3d->map_info.C[2]);
+	printf("NO: %s\n", cub3d->map.NO);
+	printf("SO: %s\n", cub3d->map.SO);
+	printf("WE: %s\n", cub3d->map.WE);
+	printf("EA: %s\n", cub3d->map.EA);
+	printf("F: %d,%d,%d\n", cub3d->map.F[0], cub3d->map.F[1],
+			cub3d->map.F[2]);
+	printf("C: %d,%d,%d\n", cub3d->map.C[0], cub3d->map.C[1],
+			cub3d->map.C[2]);
 	printf("\n\n");
 	i = 0;
-	while (cub3d->map_info.map[i])
-		printf("%s\n", cub3d->map_info.map[i++]);
+	while (cub3d->map.map[i])
+		printf("%s\n", cub3d->map.map[i++]);
 }
 
 int	map_check(t_cub3d *cub3d)
 {
 	get_map(cub3d);
-	if (!cub3d->map_info.map)
+	if (!cub3d->map.map)
 	{
 		error(6);
 		return (1);
@@ -58,7 +58,7 @@ int	file_check(char *file, t_cub3d *cub3d)
 	if (file[i - 1] == 'b' && file[i - 2] == 'u' && file[i - 3] == 'c' && file[i
 		- 4] == '.' && fd != -1)
 	{
-		cub3d->map_info.map_name = ft_strdup(file);
+		cub3d->map.map_name = ft_strdup(file);
 		close(fd);
 		return (0);
 	}

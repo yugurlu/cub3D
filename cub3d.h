@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 15:43:54 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/27 15:12:41 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/30 16:21:46 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ typedef struct s_assets
 	void		*cloud;
 }				t_assets;
 
-typedef struct s_game
+typedef struct s_rc
 {
 	double		posX;
 	double		posY;
@@ -101,25 +101,26 @@ typedef struct s_game
 	int			drawEnd;
 	int			texX;
 	int			texNum;
-	double texStep;
-	double texPos;
+	double		texStep;
+	double		texPos;
 	int			user_x;
 	int			user_y;
 	int			key_w;
 	int			key_s;
 	int			key_a;
 	int			key_d;
-}				t_game;
+}				t_rc;
 
 typedef struct s_cub3d
 {
-	t_map		map_info;
+	t_map		map;
 	t_mlx		mlx;
 	t_assets	assets;
-	t_game		game;
+	t_rc		rc;
 }				t_cub3d;
 
 int				error(int type);
+void			move(t_cub3d *cub3d);
 void			game(t_cub3d *cub3d);
 int				draw(t_cub3d *cub3d);
 int				is_mapline(char *line);

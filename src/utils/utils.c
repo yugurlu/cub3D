@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 11:01:20 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/25 11:45:13 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/30 15:47:01 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	free_split(char **split)
 
 void	rgb_to_hexadecimal(t_cub3d *cub3d)
 {
-	cub3d->map_info.floor_color = (cub3d->map_info.F[0] << 16)
-		+ (cub3d->map_info.F[1] << 8) + cub3d->map_info.F[2];
-	cub3d->map_info.ceiling_color = (cub3d->map_info.C[0] << 16)
-		+ (cub3d->map_info.C[1] << 8) + cub3d->map_info.C[2];
+	cub3d->map.floor_color = (cub3d->map.F[0] << 16)
+		+ (cub3d->map.F[1] << 8) + cub3d->map.F[2];
+	cub3d->map.ceiling_color = (cub3d->map.C[0] << 16)
+		+ (cub3d->map.C[1] << 8) + cub3d->map.C[2];
 }

@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 18:19:07 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/27 13:41:25 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/30 15:47:01 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,44 +27,44 @@ int	character_check(t_cub3d *cub3d)
 
 	i = 0;
 	count = 0;
-	while (cub3d->map_info.map[i])
+	while (cub3d->map.map[i])
 	{
 		j = 0;
-		while (cub3d->map_info.map[i][j])
+		while (cub3d->map.map[i][j])
 		{
-			if (cub3d->map_info.map[i][j] == 'N'
-				|| cub3d->map_info.map[i][j] == 'S'
-				|| cub3d->map_info.map[i][j] == 'E'
-				|| cub3d->map_info.map[i][j] == 'W')
+			if (cub3d->map.map[i][j] == 'N'
+				|| cub3d->map.map[i][j] == 'S'
+				|| cub3d->map.map[i][j] == 'E'
+				|| cub3d->map.map[i][j] == 'W')
 			{
-				if (!((cub3d->map_info.map[i][j + 1] == '0'
-							|| cub3d->map_info.map[i][j + 1] == '1'
-							|| cub3d->map_info.map[i][j + 1] == 'N'
-							|| cub3d->map_info.map[i][j + 1] == 'S'
-							|| cub3d->map_info.map[i][j + 1] == 'E'
-							|| cub3d->map_info.map[i][j + 1] == 'W'
-							|| cub3d->map_info.map[i][j + 1] == ' ')
-						&& (cub3d->map_info.map[i][j - 1] == '0'
-							|| cub3d->map_info.map[i][j - 1] == '1'
-							|| cub3d->map_info.map[i][j - 1] == 'N'
-							|| cub3d->map_info.map[i][j - 1] == 'S'
-							|| cub3d->map_info.map[i][j - 1] == 'E'
-							|| cub3d->map_info.map[i][j - 1] == 'W'
-							|| cub3d->map_info.map[i][j - 1] == ' ')
-						&& (cub3d->map_info.map[i + 1][j] == '0'
-							|| cub3d->map_info.map[i + 1][j] == '1'
-							|| cub3d->map_info.map[i + 1][j] == 'N'
-							|| cub3d->map_info.map[i + 1][j] == 'S'
-							|| cub3d->map_info.map[i + 1][j] == 'E'
-							|| cub3d->map_info.map[i + 1][j] == 'W'
-							|| cub3d->map_info.map[i + 1][j] == ' ')
-						&& (cub3d->map_info.map[i - 1][j] == '0'
-							|| cub3d->map_info.map[i - 1][j] == '1'
-							|| cub3d->map_info.map[i - 1][j] == 'N'
-							|| cub3d->map_info.map[i - 1][j] == 'S'
-							|| cub3d->map_info.map[i - 1][j] == 'E'
-							|| cub3d->map_info.map[i - 1][j] == 'W'
-							|| cub3d->map_info.map[i - 1][j] == ' ')))
+				if (!((cub3d->map.map[i][j + 1] == '0'
+							|| cub3d->map.map[i][j + 1] == '1'
+							|| cub3d->map.map[i][j + 1] == 'N'
+							|| cub3d->map.map[i][j + 1] == 'S'
+							|| cub3d->map.map[i][j + 1] == 'E'
+							|| cub3d->map.map[i][j + 1] == 'W'
+							|| cub3d->map.map[i][j + 1] == ' ')
+						&& (cub3d->map.map[i][j - 1] == '0'
+							|| cub3d->map.map[i][j - 1] == '1'
+							|| cub3d->map.map[i][j - 1] == 'N'
+							|| cub3d->map.map[i][j - 1] == 'S'
+							|| cub3d->map.map[i][j - 1] == 'E'
+							|| cub3d->map.map[i][j - 1] == 'W'
+							|| cub3d->map.map[i][j - 1] == ' ')
+						&& (cub3d->map.map[i + 1][j] == '0'
+							|| cub3d->map.map[i + 1][j] == '1'
+							|| cub3d->map.map[i + 1][j] == 'N'
+							|| cub3d->map.map[i + 1][j] == 'S'
+							|| cub3d->map.map[i + 1][j] == 'E'
+							|| cub3d->map.map[i + 1][j] == 'W'
+							|| cub3d->map.map[i + 1][j] == ' ')
+						&& (cub3d->map.map[i - 1][j] == '0'
+							|| cub3d->map.map[i - 1][j] == '1'
+							|| cub3d->map.map[i - 1][j] == 'N'
+							|| cub3d->map.map[i - 1][j] == 'S'
+							|| cub3d->map.map[i - 1][j] == 'E'
+							|| cub3d->map.map[i - 1][j] == 'W'
+							|| cub3d->map.map[i - 1][j] == ' ')))
 					return (1);
 				count++;
 			}

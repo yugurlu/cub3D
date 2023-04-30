@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 13:01:41 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/27 16:55:40 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/30 16:21:29 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@ void	floor_and_ceiling(t_cub3d *cub3d)
 	int	y;
 
 	y = -1;
-	while (++y < cub3d->map_info.width)
+	while (++y < cub3d->map.width)
 	{
 		x = -1;
-		while (++x < cub3d->map_info.height)
+		while (++x < cub3d->map.height)
 		{
-			if (x < cub3d->map_info.height / 2)
-				cub3d->mlx.mlx_object_data[x * cub3d->map_info.width
-					+ y] = cub3d->map_info.ceiling_color;
+			if (x < cub3d->map.height / 2)
+				cub3d->mlx.mlx_object_data[x * cub3d->map.width
+					+ y] = cub3d->map.ceiling_color;
 			else
-				cub3d->mlx.mlx_object_data[x * cub3d->map_info.width
-					+ y] = cub3d->map_info.floor_color;
+				cub3d->mlx.mlx_object_data[x * cub3d->map.width
+					+ y] = cub3d->map.floor_color;
 		}
 	}
 }
@@ -82,13 +82,13 @@ void	mini_map(t_cub3d *cub3d)
 	cub3d->mlx.mlx_minimap_data = (int *)mlx_get_data_addr(cub3d->mlx.mlx_minimap,
 			&cub3d->mlx.minimap_bpp, &cub3d->mlx.minimap_size_line,
 			&cub3d->mlx.minimap_endian);
-	while (cub3d->map_info.map[++y])
+	while (cub3d->map.map[++y])
 	{
 		x = -1;
 		pixel_x = 0;
-		while (cub3d->map_info.map[y][++x])
+		while (cub3d->map.map[y][++x])
 		{
-			if (cub3d->map_info.map[y][x] == '1')
+			if (cub3d->map.map[y][x] == '1')
 			{
 				cub3d->mlx.mlx_minimap_data[pixel_y * 160 + pixel_x] = 0x00FF00;
 				cub3d->mlx.mlx_minimap_data[pixel_y * 160 + pixel_x
@@ -130,10 +130,10 @@ void	mini_map(t_cub3d *cub3d)
 				cub3d->mlx.mlx_minimap_data[(pixel_y - 3) * 160 + pixel_x
 					+ 3] = 0x00FF00;
 			}
-			else if (cub3d->map_info.map[y][x] == 'N'
-					|| cub3d->map_info.map[y][x] == 'E'
-					|| cub3d->map_info.map[y][x] == 'S'
-					|| cub3d->map_info.map[y][x] == 'W')
+			else if (cub3d->map.map[y][x] == 'N'
+					|| cub3d->map.map[y][x] == 'E'
+					|| cub3d->map.map[y][x] == 'S'
+					|| cub3d->map.map[y][x] == 'W')
 			{
 				cub3d->mlx.mlx_minimap_data[pixel_y * 160 + pixel_x] = 0xFF0000;
 				cub3d->mlx.mlx_minimap_data[pixel_y * 160 + pixel_x
@@ -168,63 +168,6 @@ void	clear_img(t_cub3d *cub3d)
 	cub3d->mlx.mlx_object_data = (int *)mlx_get_data_addr(cub3d->mlx.mlx_object,
 			&cub3d->mlx.bits_per_pixel, &cub3d->mlx.size_line,
 			&cub3d->mlx.endian);
-}
-
-void	move(t_cub3d *cub3d)
-{
-	double	oldDirX;
-	double	oldPlaneX;
-
-	if (cub3d->game.key_w)
-	{
-		if (cub3d->map_info.map[(int)(cub3d->game.posX + cub3d->game.dirX
-				* 0.05)][(int)(cub3d->game.posY)] == '0'
-			|| is_character(cub3d->map_info.map[(int)(cub3d->game.posX
-					+ cub3d->game.dirX * 0.05)][(int)(cub3d->game.posY)]))
-			cub3d->game.posX += cub3d->game.dirX * 0.05;
-		if (cub3d->map_info.map[(int)cub3d->game.posX][(int)(cub3d->game.posY
-				+ cub3d->game.dirY * 0.05)] == '0'
-			|| is_character(cub3d->map_info.map[(int)cub3d->game.posX][(int)(cub3d->game.posY
-					+ cub3d->game.dirY * 0.05)]))
-			cub3d->game.posY += cub3d->game.dirY * 0.05;
-	}
-	if (cub3d->game.key_s)
-	{
-		if (cub3d->map_info.map[(int)(cub3d->game.posX - cub3d->game.dirX
-				* 0.05)][(int)(cub3d->game.posY)] == '0'
-			|| is_character(cub3d->map_info.map[(int)(cub3d->game.posX
-					- cub3d->game.dirX * 0.05)][(int)(cub3d->game.posY)]))
-			cub3d->game.posX -= cub3d->game.dirX * 0.05;
-		if (cub3d->map_info.map[(int)(cub3d->game.posX)][(int)(cub3d->game.posY
-				- cub3d->game.dirY * 0.05)] == '0'
-			|| is_character(cub3d->map_info.map[(int)(cub3d->game.posX)][(int)(cub3d->game.posY
-					- cub3d->game.dirY * 0.05)]))
-			cub3d->game.posY -= cub3d->game.dirY * 0.05;
-	}
-	if (cub3d->game.key_a)
-	{
-		oldDirX = cub3d->game.dirX;
-		cub3d->game.dirX = cub3d->game.dirX * cos(-0.04) - cub3d->game.dirY
-			* sin(-0.04);
-		cub3d->game.dirY = oldDirX * sin(-0.04) + cub3d->game.dirY * cos(-0.04);
-		oldPlaneX = cub3d->game.planeX;
-		cub3d->game.planeX = cub3d->game.planeX * cos(-0.04)
-			- cub3d->game.planeY * sin(-0.04);
-		cub3d->game.planeY = oldPlaneX * sin(-0.04) + cub3d->game.planeY
-			* cos(-0.04);
-	}
-	if (cub3d->game.key_d)
-	{
-		oldDirX = cub3d->game.dirX;
-		cub3d->game.dirX = cub3d->game.dirX * cos(0.04) - cub3d->game.dirY
-			* sin(0.04);
-		cub3d->game.dirY = oldDirX * sin(0.04) + cub3d->game.dirY * cos(0.04);
-		oldPlaneX = cub3d->game.planeX;
-		cub3d->game.planeX = cub3d->game.planeX * cos(0.04) - cub3d->game.planeY
-			* sin(0.04);
-		cub3d->game.planeY = oldPlaneX * sin(0.04) + cub3d->game.planeY
-			* cos(0.04);
-	}
 }
 
 int	draw(t_cub3d *cub3d)

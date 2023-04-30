@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 12:39:11 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/27 16:57:38 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/04/30 15:47:01 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void img(t_cub3d *cub3d)
 {
 	int x = 64;
 	int y = 64;
-	printf("\n\n%s\n\n", cub3d->map_info.NO);
+	printf("\n\n%s\n\n", cub3d->map.NO);
 	cub3d->assets.NO = mlx_xpm_file_to_image(cub3d->mlx.mlx_init, "src/assets/wall1.xpm", &x, &y);
 	cub3d->assets.NO_data = (int *)mlx_get_data_addr(cub3d->assets.NO, &cub3d->assets.NO_bpp, &cub3d->assets.NO_size_line, &cub3d->assets.NO_endian);
 }
@@ -27,15 +27,15 @@ void user_location(t_cub3d *cub3d)
 	int y;
 
 	x = 0;
-	while(cub3d->map_info.map[x])
+	while(cub3d->map.map[x])
 	{
 		y = 0;
-		while (cub3d->map_info.map[x][y])
+		while (cub3d->map.map[x][y])
 		{
-			if(cub3d->map_info.map[x][y] == 'N' || cub3d->map_info.map[x][y] == 'S' || cub3d->map_info.map[x][y] == 'W' || cub3d->map_info.map[x][y] == 'E')
+			if(cub3d->map.map[x][y] == 'N' || cub3d->map.map[x][y] == 'S' || cub3d->map.map[x][y] == 'W' || cub3d->map.map[x][y] == 'E')
 			{
-				cub3d->game.posX = x;
-				cub3d->game.posY = y;
+				cub3d->rc.posX = x;
+				cub3d->rc.posY = y;
 				return ;
 			}
 			y++;
@@ -46,42 +46,42 @@ void user_location(t_cub3d *cub3d)
 
 void camera(t_cub3d *cub3d)
 {
-	if (cub3d->map_info.map[(int)cub3d->game.posX][(int)cub3d->game.posY] == 'N')
+	if (cub3d->map.map[(int)cub3d->rc.posX][(int)cub3d->rc.posY] == 'N')
 	{
-		cub3d->game.dirX = -1;
-		cub3d->game.dirY = 0;
-		cub3d->game.planeX = 0;
-		cub3d->game.planeY = -0.66;
+		cub3d->rc.dirX = -1;
+		cub3d->rc.dirY = 0;
+		cub3d->rc.planeX = 0;
+		cub3d->rc.planeY = -0.99;
 	}
-	if (cub3d->map_info.map[(int)cub3d->game.posX][(int)cub3d->game.posY] == 'S')
+	if (cub3d->map.map[(int)cub3d->rc.posX][(int)cub3d->rc.posY] == 'S')
 	{
-		cub3d->game.dirX = 1;
-		cub3d->game.dirY = 0;
-		cub3d->game.planeX = 0;
-		cub3d->game.planeY = 0.66;
+		cub3d->rc.dirX = 1;
+		cub3d->rc.dirY = 0;
+		cub3d->rc.planeX = 0;
+		cub3d->rc.planeY = 0.99;
 	}
-	if (cub3d->map_info.map[(int)cub3d->game.posX][(int)cub3d->game.posY] == 'W')
+	if (cub3d->map.map[(int)cub3d->rc.posX][(int)cub3d->rc.posY] == 'W')
 	{
-		cub3d->game.dirX = 0;
-		cub3d->game.dirY = -1;
-		cub3d->game.planeX = -0.66;
-		cub3d->game.planeY = 0;
+		cub3d->rc.dirX = 0;
+		cub3d->rc.dirY = -1;
+		cub3d->rc.planeX = -0.99;
+		cub3d->rc.planeY = 0;
 	}
-	if (cub3d->map_info.map[(int)cub3d->game.posX][(int)cub3d->game.posY] == 'E')
+	if (cub3d->map.map[(int)cub3d->rc.posX][(int)cub3d->rc.posY] == 'E')
 	{
-		cub3d->game.dirX = 0;
-		cub3d->game.dirY = 1;
-		cub3d->game.planeX = 0.66;
-		cub3d->game.planeY = 0;
+		cub3d->rc.dirX = 0;
+		cub3d->rc.dirY = 1;
+		cub3d->rc.planeX = 0.99;
+		cub3d->rc.planeY = 0;
 	}
 }
 
 void control(t_cub3d *cub3d)
 {
-	cub3d->game.key_a = 0;
-	cub3d->game.key_s = 0;
-	cub3d->game.key_d = 0;
-	cub3d->game.key_w = 0;
+	cub3d->rc.key_a = 0;
+	cub3d->rc.key_s = 0;
+	cub3d->rc.key_d = 0;
+	cub3d->rc.key_w = 0;
 }
 
 void	set_variables(t_cub3d *cub3d)
@@ -98,8 +98,8 @@ void game(t_cub3d *cub3d)
 	cub3d->mlx.mlx_window = mlx_new_window(cub3d->mlx.mlx_init, 1920, 1080, "CUB3D");
 	cub3d->mlx.mlx_object = mlx_new_image(cub3d->mlx.mlx_init, 1920, 1080);
 	cub3d->mlx.mlx_object_data = (int*)mlx_get_data_addr(cub3d->mlx.mlx_object, &cub3d->mlx.bits_per_pixel, &cub3d->mlx.size_line, &cub3d->mlx.endian);
-	cub3d->map_info.width = 1920;
-	cub3d->map_info.height = 1080;
+	cub3d->map.width = 1920;
+	cub3d->map.height = 1080;
 	set_variables(cub3d);
 	mlx_loop_hook(cub3d->mlx.mlx_init, &draw, cub3d);
 	mlx_hook(cub3d->mlx.mlx_window, 2, 0 ,&press, cub3d);
