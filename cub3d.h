@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 15:43:54 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/30 17:53:17 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/05/01 11:37:05 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct s_map
 	char		*SO;
 	char		*WE;
 	char		*EA;
+	char		user_type;
 	int			F[3];
 	int			C[3];
 	int			error;

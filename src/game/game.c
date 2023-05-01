@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 12:39:11 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/30 17:53:35 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/05/01 11:38:20 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ void	user_location(t_cub3d *cub3d)
 			{
 				cub3d->rc.posX = x;
 				cub3d->rc.posY = y;
+				cub3d->map.user_type = cub3d->map.map[x][y];
+				printf("\n\n%c\n\n", cub3d->map.user_type);
 				return ;
 			}
 			y++;
@@ -58,27 +60,27 @@ void	camera(t_cub3d *cub3d)
 		cub3d->rc.dirX = -1;
 		cub3d->rc.dirY = 0;
 		cub3d->rc.planeX = 0;
-		cub3d->rc.planeY = -0.99;
+		cub3d->rc.planeY = -0.66;
 	}
 	if (cub3d->map.map[(int)cub3d->rc.posX][(int)cub3d->rc.posY] == 'S')
 	{
 		cub3d->rc.dirX = 1;
 		cub3d->rc.dirY = 0;
 		cub3d->rc.planeX = 0;
-		cub3d->rc.planeY = 0.99;
+		cub3d->rc.planeY = 0.66;
 	}
 	if (cub3d->map.map[(int)cub3d->rc.posX][(int)cub3d->rc.posY] == 'W')
 	{
 		cub3d->rc.dirX = 0;
 		cub3d->rc.dirY = -1;
-		cub3d->rc.planeX = -0.99;
+		cub3d->rc.planeX = -0.66;
 		cub3d->rc.planeY = 0;
 	}
 	if (cub3d->map.map[(int)cub3d->rc.posX][(int)cub3d->rc.posY] == 'E')
 	{
 		cub3d->rc.dirX = 0;
 		cub3d->rc.dirY = 1;
-		cub3d->rc.planeX = 0.99;
+		cub3d->rc.planeX = 0.66;
 		cub3d->rc.planeY = 0;
 	}
 }

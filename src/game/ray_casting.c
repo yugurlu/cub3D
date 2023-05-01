@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 13:02:58 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/30 17:53:48 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/05/01 11:35:50 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,14 +99,14 @@ void set_value(t_cub3d *cub3d)
 
 void	texture(t_cub3d *cub3d, int x)
 {
-	int texY;
+	//int texY;
 	int	start;
 
 	set_value(cub3d);
 	start = cub3d->rc.drawStart;
 	while (start < cub3d->rc.drawEnd)
 	{
-		texY = (int)cub3d->rc.texPos & 63;
+		//texY = (int)cub3d->rc.texPos & 63;
 		cub3d->rc.texPos += cub3d->rc.texStep;
 		//cub3d->mlx.mlx_object_data[start * 1920 + x] = cub3d->assets.NO_data[64 * texY + cub3d->rc.texX];
 		if(cub3d->rc.side == 0 && cub3d->rc.rayDirX > 0) // side == 0 -> ışın cisme y ekseninden çarpıyor

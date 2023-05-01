@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 16:20:32 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/30 17:53:41 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/05/01 11:43:49 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,30 +42,38 @@ void	key_s(t_cub3d *cub3d)
 
 void	key_a(t_cub3d *cub3d)
 {
+	double value;
 	double	old_dirx;
 	double	old_planex;
 
+	value = -0.03;
+	if(cub3d->map.user_type == 'E' || cub3d->map.user_type == 'W')
+		value = 0.03;
 	old_dirx = cub3d->rc.dirX;
-	cub3d->rc.dirX = cub3d->rc.dirX * cos(-0.03) - cub3d->rc.dirY * sin(-0.03);
-	cub3d->rc.dirY = old_dirx * sin(-0.03) + cub3d->rc.dirY * cos(-0.03);
+	cub3d->rc.dirX = cub3d->rc.dirX * cos(value) - cub3d->rc.dirY * sin(value);
+	cub3d->rc.dirY = old_dirx * sin(value) + cub3d->rc.dirY * cos(value);
 	old_planex = cub3d->rc.planeX;
-	cub3d->rc.planeX = cub3d->rc.planeX * cos(-0.03) - cub3d->rc.planeY
-		* sin(-0.03);
-	cub3d->rc.planeY = old_planex * sin(-0.03) + cub3d->rc.planeY * cos(-0.03);
+	cub3d->rc.planeX = cub3d->rc.planeX * cos(value) - cub3d->rc.planeY
+		* sin(value);
+	cub3d->rc.planeY = old_planex * sin(value) + cub3d->rc.planeY * cos(value);
 }
 
 void	key_d(t_cub3d *cub3d)
 {
+	double	value;
 	double	old_dirx;
 	double	old_planex;
 
+	value = 0.03;
+	if(cub3d->map.user_type == 'E' || cub3d->map.user_type == 'W')
+		value = -0.03;
 	old_dirx = cub3d->rc.dirX;
-	cub3d->rc.dirX = cub3d->rc.dirX * cos(0.03) - cub3d->rc.dirY * sin(0.03);
-	cub3d->rc.dirY = old_dirx * sin(0.03) + cub3d->rc.dirY * cos(0.03);
+	cub3d->rc.dirX = cub3d->rc.dirX * cos(value) - cub3d->rc.dirY * sin(value);
+	cub3d->rc.dirY = old_dirx * sin(value) + cub3d->rc.dirY * cos(value);
 	old_planex = cub3d->rc.planeX;
-	cub3d->rc.planeX = cub3d->rc.planeX * cos(0.03) - cub3d->rc.planeY
-		* sin(0.03);
-	cub3d->rc.planeY = old_planex * sin(0.03) + cub3d->rc.planeY * cos(0.03);
+	cub3d->rc.planeX = cub3d->rc.planeX * cos(value) - cub3d->rc.planeY
+		* sin(value);
+	cub3d->rc.planeY = old_planex * sin(value) + cub3d->rc.planeY * cos(value);
 }
 
 void	move(t_cub3d *cub3d)
