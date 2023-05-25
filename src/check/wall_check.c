@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wall_check.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: yusufugurlu <yusufugurlu@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 16:05:35 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/30 17:54:57 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/05/25 11:23:19 by yusufugurlu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@ int	wall_check(t_cub3d *cub3d)
 		{
 			if (cub3d->map.map[i][j] == '0')
 			{
-				if (!((cub3d->map.map[i][j + 1] == '0'
-							|| cub3d->map.map[i][j + 1] == '1'
-							|| cub3d->map.map[i][j + 1] == 'N'
+				if (!((cub3d->map.map[i][j + 1] == '0' || cub3d->map.map[i][j
+							+ 1] == '1' || cub3d->map.map[i][j + 1] == 'N'
 							|| cub3d->map.map[i][j + 1] == 'S'
 							|| cub3d->map.map[i][j + 1] == 'E'
 							|| cub3d->map.map[i][j + 1] == 'W'
@@ -39,16 +38,14 @@ int	wall_check(t_cub3d *cub3d)
 							|| cub3d->map.map[i][j - 1] == 'E'
 							|| cub3d->map.map[i][j - 1] == 'W'
 							|| cub3d->map.map[i][j - 1] == ' ')
-						&& (cub3d->map.map[i + 1][j] == '0'
-							|| cub3d->map.map[i + 1][j] == '1'
-							|| cub3d->map.map[i + 1][j] == 'N'
+						&& (cub3d->map.map[i + 1][j] == '0' || cub3d->map.map[i
+							+ 1][j] == '1' || cub3d->map.map[i + 1][j] == 'N'
 							|| cub3d->map.map[i + 1][j] == 'S'
 							|| cub3d->map.map[i + 1][j] == 'E'
 							|| cub3d->map.map[i + 1][j] == 'W'
 							|| cub3d->map.map[i + 1][j] == ' ')
-						&& (cub3d->map.map[i - 1][j] == '0'
-							|| cub3d->map.map[i - 1][j] == '1'
-							|| cub3d->map.map[i - 1][j] == 'N'
+						&& (cub3d->map.map[i - 1][j] == '0' || cub3d->map.map[i
+							- 1][j] == '1' || cub3d->map.map[i - 1][j] == 'N'
 							|| cub3d->map.map[i - 1][j] == 'S'
 							|| cub3d->map.map[i - 1][j] == 'E'
 							|| cub3d->map.map[i - 1][j] == 'W'

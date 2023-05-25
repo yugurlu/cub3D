@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: yusufugurlu <yusufugurlu@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 16:20:32 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/05/01 11:43:49 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/05/25 11:23:11 by yusufugurlu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	key_w(t_cub3d *cub3d)
 				* 0.07)][(int)(cub3d->rc.posY)]))
 		cub3d->rc.posX += cub3d->rc.dirX * 0.07;
 	if (cub3d->map.map[(int)cub3d->rc.posX][(int)(cub3d->rc.posY
-		+ cub3d->rc.dirY * 0.07)] == '0'
-	|| is_character(cub3d->map.map[(int)cub3d->rc.posX][(int)(cub3d->rc.posY
+			+ cub3d->rc.dirY * 0.07)] == '0'
+		|| is_character(cub3d->map.map[(int)cub3d->rc.posX][(int)(cub3d->rc.posY
 				+ cub3d->rc.dirY * 0.07)]))
 		cub3d->rc.posY += cub3d->rc.dirY * 0.07;
 }
@@ -35,19 +35,19 @@ void	key_s(t_cub3d *cub3d)
 		cub3d->rc.posX -= cub3d->rc.dirX * 0.07;
 	if (cub3d->map.map[(int)(cub3d->rc.posX)][(int)(cub3d->rc.posY
 			- cub3d->rc.dirY * 0.07)] == '0'
-	|| is_character(cub3d->map.map[(int)(cub3d->rc.posX)][(int)(cub3d->rc.posY
+		|| is_character(cub3d->map.map[(int)(cub3d->rc.posX)][(int)(cub3d->rc.posY
 				- cub3d->rc.dirY * 0.07)]))
 		cub3d->rc.posY -= cub3d->rc.dirY * 0.07;
 }
 
 void	key_a(t_cub3d *cub3d)
 {
-	double value;
+	double	value;
 	double	old_dirx;
 	double	old_planex;
 
 	value = -0.03;
-	if(cub3d->map.user_type == 'E' || cub3d->map.user_type == 'W')
+	if (cub3d->map.user_type == 'E' || cub3d->map.user_type == 'W')
 		value = 0.03;
 	old_dirx = cub3d->rc.dirX;
 	cub3d->rc.dirX = cub3d->rc.dirX * cos(value) - cub3d->rc.dirY * sin(value);
@@ -65,7 +65,7 @@ void	key_d(t_cub3d *cub3d)
 	double	old_planex;
 
 	value = 0.03;
-	if(cub3d->map.user_type == 'E' || cub3d->map.user_type == 'W')
+	if (cub3d->map.user_type == 'E' || cub3d->map.user_type == 'W')
 		value = -0.03;
 	old_dirx = cub3d->rc.dirX;
 	cub3d->rc.dirX = cub3d->rc.dirX * cos(value) - cub3d->rc.dirY * sin(value);
