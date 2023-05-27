@@ -6,7 +6,7 @@
 /*   By: yusufugurlu <yusufugurlu@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 13:02:58 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/05/25 11:24:08 by yusufugurlu      ###   ########.fr       */
+/*   Updated: 2023/05/27 11:36:12 by yusufugurlu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void	texture(t_cub3d *cub3d, int x)
 	//int texY;
 	int	start;
 
-	set_value(cub3d);
+	//set_value(cub3d);
 	start = cub3d->rc.drawStart;
 	while (start < cub3d->rc.drawEnd)
 	{
