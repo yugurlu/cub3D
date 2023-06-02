@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   control.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: bsamli <bsamli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 09:42:25 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/30 17:51:33 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/06/01 16:14:22 by bsamli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ int	press(int key, void *cub3dd)
 		cub3d->rc.key_w = 1;
 	if (key == 1)
 		cub3d->rc.key_s = 1;
+	if (key == 123)
+		cub3d->rc.key_left = 1;
+	if (key == 124)
+		cub3d->rc.key_right = 1;
 	if (key == 0)
 		cub3d->rc.key_a = 1;
 	if (key == 2)
@@ -43,6 +47,10 @@ int	release(int key, t_cub3d *cub3d)
 		cub3d->rc.key_w = 0;
 	if (key == 1)
 		cub3d->rc.key_s = 0;
+	if (key == 123)
+		cub3d->rc.key_left = 0;
+	if (key == 124)
+		cub3d->rc.key_right = 0;
 	if (key == 0)
 		cub3d->rc.key_a = 0;
 	if (key == 2)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: bsamli <bsamli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 12:39:11 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/05/01 11:38:20 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/06/01 19:18:50 by bsamli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,9 @@ void	camera(t_cub3d *cub3d)
 
 void	control(t_cub3d *cub3d)
 {
-	cub3d->rc.key_a = 0;
+	cub3d->rc.key_left = 0;
 	cub3d->rc.key_s = 0;
-	cub3d->rc.key_d = 0;
+	cub3d->rc.key_right = 0;
 	cub3d->rc.key_w = 0;
 }
 

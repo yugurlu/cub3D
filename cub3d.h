@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: bsamli <bsamli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 15:43:54 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/05/01 11:37:05 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/06/01 19:15:10 by bsamli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,8 @@ typedef struct s_rc
 	int			user_y;
 	int			key_w;
 	int			key_s;
+	int			key_left;
+	int			key_right;
 	int			key_a;
 	int			key_d;
 }				t_rc;
@@ -120,6 +122,7 @@ typedef struct s_cub3d
 int				error(int type);
 void			move(t_cub3d *cub3d);
 void			game(t_cub3d *cub3d);
+int handleMouseMove(int x, int y, t_cub3d *cub3d);
 int				draw(t_cub3d *cub3d);
 int				is_mapline(char *line);
 int				get_map(t_cub3d *cub3d);
