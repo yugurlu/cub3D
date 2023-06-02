@@ -10,7 +10,7 @@ Clone the repo
 ```sh
 git clone https://github.com/bertt6/cub3D.git
 ```
-Go to `philo` folder and run `make`
+Go to `cub3D` folder and run `make`
 
 ```sh
 make
