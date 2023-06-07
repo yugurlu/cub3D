@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: bsamli <bsamli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 21:51:21 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/25 13:36:39 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/06/07 17:57:00 by bsamli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ char	**ft_split(char const *s, char c)
 
 	if (s)
 	{
-		str = malloc( sizeof(char *)  * (splitlen(s, c) + 1));
+		str = malloc(sizeof(char *) * (splitlen(s, c) + 1));
 		if (!str)
 			return (NULL);
 		spliit(str, s, c);

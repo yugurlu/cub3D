@@ -6,12 +6,12 @@
 /*   By: bsamli <bsamli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 15:43:54 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/06/01 19:15:10 by bsamli           ###   ########.fr       */
+/*   Updated: 2023/06/07 18:34:04 by bsamli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D
-# define CUB3D
+#ifndef CUB3D_H
+# define CUB3D_H
 
 # include "gnl/get_next_line.h"
 # include "libft/libft.h"
@@ -45,13 +45,13 @@ typedef struct s_map
 {
 	char		**map;
 	char		*map_name;
-	char		*NO;
-	char		*SO;
-	char		*WE;
-	char		*EA;
+	char		*no;
+	char		*so;
+	char		*we;
+	char		*ea;
 	char		user_type;
-	int			F[3];
-	int			C[3];
+	int			f[3];
+	int			c[3];
 	int			error;
 	int			width;
 	int			height;
@@ -62,45 +62,45 @@ typedef struct s_map
 typedef struct s_assets
 {
 	int			size;
-	void		*NO;
-	int			*NO_data;
-	int			NO_bpp;
-	int			NO_size_line;
-	int			NO_endian;
-	void		*SO;
-	void		*WE;
-	void		*EA;
+	void		*no;
+	int			*no_data;
+	int			no_bpp;
+	int			no_size_line;
+	int			no_endian;
+	void		*so;
+	void		*we;
+	void		*ea;
 }				t_assets;
 
 typedef struct s_rc
 {
-	double		posX;
-	double		posY;
-	double		dirX;
-	double		dirY;
-	double		planeX;
-	double		planeY;
-	double		cameraX;
-	double		rayDirX;
-	double		rayDirY;
-	double		deltaDistX;
-	double		deltaDistY;
-	double		sideDistX;
-	double		sideDistY;
-	double		perpWallDist;
-	int			lineHeight;
-	int			mapX;
-	int			mapY;
-	int			stepX;
-	int			stepY;
+	double		posx;
+	double		posy;
+	double		dirx;
+	double		diry;
+	double		planex;
+	double		planey;
+	double		camerax;
+	double		raydirx;
+	double		raydiry;
+	double		deltadistx;
+	double		deltadisty;
+	double		sidedistx;
+	double		sidedisty;
+	double		perpwalldist;
+	int			lineheight;
+	int			mapx;
+	int			mapy;
+	int			stepx;
+	int			stepy;
 	int			wall;
 	int			side;
-	int			drawStart;
-	int			drawEnd;
-	int			texX;
-	int			texNum;
-	double		texStep;
-	double		texPos;
+	int			drawstart;
+	int			drawend;
+	int			tex_x;
+	int			texnum;
+	double		texstep;
+	double		texpos;
 	int			user_x;
 	int			user_y;
 	int			key_w;
@@ -120,24 +120,38 @@ typedef struct s_cub3d
 }				t_cub3d;
 
 int				error(int type);
+void			img(t_cub3d *cub3d);
 void			move(t_cub3d *cub3d);
+int				is_character(char c);
 void			game(t_cub3d *cub3d);
-int handleMouseMove(int x, int y, t_cub3d *cub3d);
 int				draw(t_cub3d *cub3d);
+void			key_w(t_cub3d *cub3d);
+void			key_s(t_cub3d *cub3d);
+void			key_a(t_cub3d *cub3d);
+void			key_d(t_cub3d *cub3d);
+void			camera(t_cub3d *cub3d);
 int				is_mapline(char *line);
+void			control(t_cub3d *cub3d);
 int				get_map(t_cub3d *cub3d);
+void			raydist(t_cub3d *cub3d);
+void			wallhit(t_cub3d *cub3d);
 void			free_split(char **split);
+void			key_left(t_cub3d *cub3d);
 void			fill_map(t_cub3d *cub3d);
-void			get_height(t_cub3d *cub3d);
+void			set_value(t_cub3d *cub3d);
+void			direction(t_cub3d *cub3d);
 int				wall_check(t_cub3d *cub3d);
 void			ray_casting(t_cub3d *cub3d);
 int				value_check(t_cub3d *cub3d);
 int				press(int key, void *cub3d);
+void			set_variables(t_cub3d *cub3d);
+void			user_location(t_cub3d *cub3d);
+void			texture(t_cub3d *cub3d, int x);
 int				character_check(t_cub3d *cub3d);
 int				release(int key, t_cub3d *cub3d);
 void			floor_and_ceiling(t_cub3d *cub3d);
 void			rgb_to_hexadecimal(t_cub3d *cub3d);
 int				close_window(int key, void *cub3d);
+void			get_height(t_cub3d *cub3d, int height);
 int				check(int ac, char **av, t_cub3d *cub3d);
-int				is_character(char c);
 #endif

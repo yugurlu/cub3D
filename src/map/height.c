@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   height.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugurlu <yugurlu@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: bsamli <bsamli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 11:18:40 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/04/30 15:47:01 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/06/07 18:21:08 by bsamli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,11 @@ int	is_mapline(char *line)
 	return (0);
 }
 
-void	get_height(t_cub3d *cub3d)
+void	get_height(t_cub3d *cub3d, int height)
 {
 	int		fd;
-	int		height;
 	char	*line;
 
-	height = 0;
 	fd = open(cub3d->map.map_name, O_RDONLY);
 	line = get_next_line(fd);
 	while (line)
