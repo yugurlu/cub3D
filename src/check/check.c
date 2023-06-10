@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yusufugurlu <yusufugurlu@student.42.fr>    +#+  +:+       +#+        */
+/*   By: bsamli <bsamli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 16:01:41 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/05/25 11:21:35 by yusufugurlu      ###   ########.fr       */
+/*   Updated: 2023/06/07 18:02:35 by bsamli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ void	print_data(t_cub3d *cub3d)
 {
 	int	i;
 
-	printf("NO: %s\n", cub3d->map.NO);
-	printf("SO: %s\n", cub3d->map.SO);
-	printf("WE: %s\n", cub3d->map.WE);
-	printf("EA: %s\n", cub3d->map.EA);
-	printf("F: %d,%d,%d\n", cub3d->map.F[0], cub3d->map.F[1], cub3d->map.F[2]);
-	printf("C: %d,%d,%d\n", cub3d->map.C[0], cub3d->map.C[1], cub3d->map.C[2]);
+	printf("NO: %s\n", cub3d->map.no);
+	printf("SO: %s\n", cub3d->map.so);
+	printf("WE: %s\n", cub3d->map.we);
+	printf("EA: %s\n", cub3d->map.ea);
+	printf("F: %d,%d,%d\n", cub3d->map.f[0], cub3d->map.f[1], cub3d->map.f[2]);
+	printf("C: %d,%d,%d\n", cub3d->map.c[0], cub3d->map.c[1], cub3d->map.c[2]);
 	printf("\n\n");
 	i = 0;
 	while (cub3d->map.map[i])
@@ -54,7 +54,7 @@ int	file_check(char *file, t_cub3d *cub3d)
 	while (file[i])
 		i++;
 	if (file[i - 1] == 'b' && file[i - 2] == 'u' && file[i - 3] == 'c' && file[i
-		- 4] == '.' && fd != -1)
+			- 4] == '.' && fd != -1)
 	{
 		cub3d->map.map_name = ft_strdup(file);
 		close(fd);
