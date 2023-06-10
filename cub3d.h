@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsamli <bsamli@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yugurlu <yugurlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 15:43:54 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/06/07 18:34:04 by bsamli           ###   ########.fr       */
+/*   Updated: 2023/06/10 14:00:54 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ typedef struct s_map
 {
 	char		**map;
 	char		*map_name;
-	char		*no;
+	char		*ea;
 	char		*so;
 	char		*we;
-	char		*ea;
+	char		*no;
 	char		user_type;
 	int			f[3];
 	int			c[3];
@@ -67,6 +67,22 @@ typedef struct s_assets
 	int			no_bpp;
 	int			no_size_line;
 	int			no_endian;
+
+	int			*so_data;
+	int			so_bpp;
+	int			so_size_line;
+	int			so_endian;
+
+	int			*we_data;
+	int			we_bpp;
+	int			we_size_line;
+	int			we_endian;
+
+	int			*ea_data;
+	int			ea_bpp;
+	int			ea_size_line;
+	int			ea_endian;
+
 	void		*so;
 	void		*we;
 	void		*ea;
@@ -120,6 +136,7 @@ typedef struct s_cub3d
 }				t_cub3d;
 
 int				error(int type);
+int				my_free(int *fd);
 void			img(t_cub3d *cub3d);
 void			move(t_cub3d *cub3d);
 int				is_character(char c);
@@ -138,6 +155,7 @@ void			wallhit(t_cub3d *cub3d);
 void			free_split(char **split);
 void			key_left(t_cub3d *cub3d);
 void			fill_map(t_cub3d *cub3d);
+void			key_right(t_cub3d *cub3d);
 void			set_value(t_cub3d *cub3d);
 void			direction(t_cub3d *cub3d);
 int				wall_check(t_cub3d *cub3d);

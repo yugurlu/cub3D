@@ -1,9 +1,14 @@
+
+
+
+
+
 NO src/assets/assets2.xpm
-SO src/assets/assets3.xpm
+SO src/assets/assets1.xpm
 WE src/assets/assets4.xpm
-EA src/assets/assets1.xpm
-F 0,100,0
-C 0,0,50
+EA src/assets/assets3.xpm
+F 0,2,30
+C 0,39,50
 
 111111111111111111111111111
 100000000000000000000000001

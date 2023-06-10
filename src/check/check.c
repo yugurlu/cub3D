@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsamli <bsamli@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yugurlu <yugurlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 16:01:41 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/06/07 18:02:35 by bsamli           ###   ########.fr       */
+/*   Updated: 2023/06/10 13:02:37 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,12 @@ int	file_check(char *file, t_cub3d *cub3d)
 
 int	check(int ac, char **av, t_cub3d *cub3d)
 {
-	if (ac != 2)
+	if (ac != 2 && error(9))
+		return (1);
+	if (file_check(av[1], cub3d) || map_check(cub3d) || value_check(cub3d))
 	{
-		error(9);
 		return (1);
 	}
-	if (file_check(av[1], cub3d) || map_check(cub3d) || value_check(cub3d))
-		return (1);
 	print_data(cub3d);
 	return (0);
 }

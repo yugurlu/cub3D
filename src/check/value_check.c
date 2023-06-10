@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   value_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsamli <bsamli@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yugurlu <yugurlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 11:51:13 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/06/07 16:28:15 by bsamli           ###   ########.fr       */
+/*   Updated: 2023/06/10 13:14:06 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,21 +57,22 @@ int	value_check(t_cub3d *cub3d)
 
 	fd = open_files(cub3d);
 	if ((cub3d->map.no == NULL || cub3d->map.so == NULL || cub3d->map.we == NULL
-			|| cub3d->map.ea == NULL) && error(1))
+			|| cub3d->map.ea == NULL) && error(1) && my_free(fd))
 		return (1);
-	if ((fd[0] == -1 || fd[1] == -1 || fd[2] == -1 || fd[3] == -1) && error(2))
+	if ((fd[0] == -1 || fd[1] == -1 || fd[2] == -1 || fd[3] == -1) && error(2)
+		&& my_free(fd))
 		return (1);
 	if ((cub3d->map.f[0] == -1 || cub3d->map.f[1] == -1 || cub3d->map.f[1] == -1
 			|| cub3d->map.c[0] == -1 || cub3d->map.c[1] == -1
-			|| cub3d->map.c[2] == -1) && error(3))
+			|| cub3d->map.c[2] == -1) && error(3) && my_free(fd))
 		return (1);
 	if ((cub3d->map.f[0] > 255 || cub3d->map.f[1] > 255 || cub3d->map.f[2] > 255
 			|| cub3d->map.c[0] > 255 || cub3d->map.c[1] > 255
-			|| cub3d->map.c[2] > 255) && error(4))
+			|| cub3d->map.c[2] > 255) && error(4) && my_free(fd))
 		return (1);
 	if ((cub3d->map.f[0] < 0 || cub3d->map.f[1] < 0 || cub3d->map.f[2] < 0
 			|| cub3d->map.c[0] < 0 || cub3d->map.c[1] < 0
-			|| cub3d->map.c[2] < 0) && error(5))
+			|| cub3d->map.c[2] < 0) && error(5) && my_free(fd))
 		return (1);
 	free(fd);
 	return (0);

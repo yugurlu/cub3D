@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_casting.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsamli <bsamli@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yugurlu <yugurlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 13:02:58 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/06/07 18:57:23 by bsamli           ###   ########.fr       */
+/*   Updated: 2023/06/10 14:00:32 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,18 +97,28 @@ void	set_value(t_cub3d *cub3d)
 			/ 2) * cub3d->rc.texstep;
 }
 
-void	texture(t_cub3d *cub3d, int x)
+void	ray_casting(t_cub3d *cub3d)
 {
-	int texy;
-	
-	int	start;
+	int	x;
 
-	start = cub3d->rc.drawstart;
-	while (start < cub3d->rc.drawend)
+	x = 0;
+	while (x < 1920)
 	{
-		texy = (int)cub3d->rc.texpos & 63;
-		cub3d->rc.texpos += cub3d->rc.texstep;
-		cub3d->mlx.mlx_object_data[start * 1920 + x] = cub3d->assets.no_data[64 * texy + cub3d->rc.tex_x];
-		start++;
+		cub3d->rc.camerax = 2 * x / (double)1920 - 1; //kamera sadece x ekseninde yön değiştireceği için sadece x konumu hesaplanıyor
+		cub3d->rc.raydirx = cub3d->rc.dirx + cub3d->rc.planex  // yön vektörleri
+			* cub3d->rc.camerax;
+		cub3d->rc.raydiry = cub3d->rc.diry + cub3d->rc.planey
+			* cub3d->rc.camerax;
+		cub3d->rc.mapx = (int)cub3d->rc.posx; // map konumu
+		cub3d->rc.mapy = (int)cub3d->rc.posy;
+		cub3d->rc.deltadistx = fabs(1 / cub3d->rc.raydirx); // bir sonraki üçgenin x veya y eksenindeki duvara ulaşabilmek için gerekli mesafe
+		cub3d->rc.deltadisty = fabs(1 / cub3d->rc.raydiry);
+		direction(cub3d);  // dda için x ve y eksenlerinde izlenicek adım hesaplaması
+		wallhit(cub3d); // dda ile, cisme gönderilen ışının hangi eksende cisme çarptığı
+		raydist(cub3d); // çizilicek duvarın boyu ve kamera ve cisim arasındaki mesafe
+		texture(cub3d, x); // duvarın taraflarına göre texture basımı
+		x++;
 	}
+	mlx_put_image_to_window(cub3d->mlx.mlx_init, cub3d->mlx.mlx_window,
+		cub3d->mlx.mlx_object, 0, 0);
 }

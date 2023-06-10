@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsamli <bsamli@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yugurlu <yugurlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 16:20:32 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/06/07 18:32:00 by bsamli           ###   ########.fr       */
+/*   Updated: 2023/06/10 11:57:56 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,20 +68,18 @@ void	key_d(t_cub3d *cub3d)
 		cub3d->rc.posy -= cub3d->rc.dirx * 0.07;
 }
 
-void	key_left(t_cub3d *cub3d)
+void	move(t_cub3d *cub3d)
 {
-	double	value;
-	double	old_dirx;
-	double	old_planex;
-
-	value = -0.03;
-	if (cub3d->map.user_type == 'E' || cub3d->map.user_type == 'W')
-		value = 0.03;
-	old_dirx = cub3d->rc.dirx;
-	cub3d->rc.dirx = cub3d->rc.dirx * cos(value) - cub3d->rc.diry * sin(value);
-	cub3d->rc.diry = old_dirx * sin(value) + cub3d->rc.diry * cos(value);
-	old_planex = cub3d->rc.planex;
-	cub3d->rc.planex = cub3d->rc.planex * cos(value) - cub3d->rc.planey
-		* sin(value);
-	cub3d->rc.planey = old_planex * sin(value) + cub3d->rc.planey * cos(value);
+	if (cub3d->rc.key_w)
+		key_w(cub3d);
+	if (cub3d->rc.key_s)
+		key_s(cub3d);
+	if (cub3d->rc.key_left)
+		key_left(cub3d);
+	if (cub3d->rc.key_right)
+		key_right(cub3d);
+	if (cub3d->rc.key_a)
+		key_a(cub3d);
+	if (cub3d->rc.key_d)
+		key_d(cub3d);
 }

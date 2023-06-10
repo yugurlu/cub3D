@@ -3,37 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   utils_raycasting.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsamli <bsamli@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yugurlu <yugurlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 18:16:08 by bsamli            #+#    #+#             */
-/*   Updated: 2023/06/07 18:37:05 by bsamli           ###   ########.fr       */
+/*   Updated: 2023/06/10 12:51:51 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
-void	ray_casting(t_cub3d *cub3d)
+void	texture(t_cub3d *cub3d, int x)
 {
-	int	x;
+	int	texy;
 
-	x = 0;
-	while (x < 1920)
+	set_value(cub3d);
+	while (cub3d->rc.drawstart < cub3d->rc.drawend)
 	{
-		cub3d->rc.camerax = 2 * x / (double)1920 - 1;
-		cub3d->rc.raydirx = cub3d->rc.dirx + cub3d->rc.planex
-			* cub3d->rc.camerax;
-		cub3d->rc.raydiry = cub3d->rc.diry + cub3d->rc.planey
-			* cub3d->rc.camerax;
-		cub3d->rc.mapx = (int)cub3d->rc.posx;
-		cub3d->rc.mapy = (int)cub3d->rc.posy;
-		cub3d->rc.deltadistx = fabs(1 / cub3d->rc.raydirx);
-		cub3d->rc.deltadisty = fabs(1 / cub3d->rc.raydiry);
-		direction(cub3d);
-		wallhit(cub3d);
-		raydist(cub3d);
-		texture(cub3d, x);
-		x++;
+		texy = (int)cub3d->rc.texpos & 63;
+		cub3d->rc.texpos += cub3d->rc.texstep;
+		if (cub3d->rc.side == 0 && cub3d->rc.raydirx > 0) // side == 0 -> ışın cisme y ekseninden çarpıyor
+			cub3d->mlx.mlx_object_data[cub3d->rc.drawstart * 1920
+				+ x] = cub3d->assets.so_data[64 * texy + cub3d->rc.tex_x];
+		else if (cub3d->rc.side == 0 && cub3d->rc.raydirx < 0)
+			cub3d->mlx.mlx_object_data[cub3d->rc.drawstart * 1920
+				+ x] = cub3d->assets.no_data[64 * texy + cub3d->rc.tex_x];
+		else if (cub3d->rc.side == 1 && cub3d->rc.raydiry > 0)
+			cub3d->mlx.mlx_object_data[cub3d->rc.drawstart * 1920
+				+ x] = cub3d->assets.ea_data[64 * texy + cub3d->rc.tex_x];
+		else
+			cub3d->mlx.mlx_object_data[cub3d->rc.drawstart * 1920
+				+ x] = cub3d->assets.we_data[64 * texy + cub3d->rc.tex_x];
+		cub3d->rc.drawstart++;
 	}
-	mlx_put_image_to_window(cub3d->mlx.mlx_init, cub3d->mlx.mlx_window,
-		cub3d->mlx.mlx_object, 0, 0);
 }

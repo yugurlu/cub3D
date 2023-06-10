@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsamli <bsamli@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yugurlu <yugurlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 12:39:11 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/06/07 18:53:10 by bsamli           ###   ########.fr       */
+/*   Updated: 2023/06/10 12:54:04 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,26 @@ void	img(t_cub3d *cub3d)
 
 	x = 64;
 	y = 64;
-	printf("\n\n%s\n\n", cub3d->map.no);
-	cub3d->assets.no = mlx_xpm_file_to_image(cub3d->mlx.mlx_init,
-			"src/assets/assets1.xpm", &x, &y);
+	cub3d->assets.no = mlx_xpm_file_to_image(cub3d->mlx.mlx_init, cub3d->map.no,
+			&x, &y);
 	cub3d->assets.no_data = (int *)mlx_get_data_addr(cub3d->assets.no,
 			&cub3d->assets.no_bpp, &cub3d->assets.no_size_line,
 			&cub3d->assets.no_endian);
+	cub3d->assets.we = mlx_xpm_file_to_image(cub3d->mlx.mlx_init, cub3d->map.we,
+			&x, &y);
+	cub3d->assets.we_data = (int *)mlx_get_data_addr(cub3d->assets.we,
+			&cub3d->assets.we_bpp, &cub3d->assets.we_size_line,
+			&cub3d->assets.we_endian);
+	cub3d->assets.so = mlx_xpm_file_to_image(cub3d->mlx.mlx_init, cub3d->map.so,
+			&x, &y);
+	cub3d->assets.so_data = (int *)mlx_get_data_addr(cub3d->assets.so,
+			&cub3d->assets.so_bpp, &cub3d->assets.so_size_line,
+			&cub3d->assets.so_endian);
+	cub3d->assets.ea = mlx_xpm_file_to_image(cub3d->mlx.mlx_init, cub3d->map.ea,
+			&x, &y);
+	cub3d->assets.ea_data = (int *)mlx_get_data_addr(cub3d->assets.ea,
+			&cub3d->assets.ea_bpp, &cub3d->assets.ea_size_line,
+			&cub3d->assets.ea_endian);
 }
 
 void	user_location(t_cub3d *cub3d)

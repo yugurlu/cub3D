@@ -9,6 +9,7 @@
 		"__string": "c",
 		"algorithm": "c",
 		"ios": "c",
-		"type_traits": "c"
+		"type_traits": "c",
+		"cub3d.h": "c"
 	}
 }
