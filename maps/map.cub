@@ -3,12 +3,12 @@
 
 
 
-NO src/assets/assets2.xpm
-SO src/assets/assets1.xpm
-WE src/assets/assets4.xpm
-EA src/assets/assets3.xpm
-F 0,2,30
-C 0,39,50
+NO src/assets/color1.xpm
+SO src/assets/color2.xpm
+WE src/assets/color3.xpm
+EA src/assets/color4.xpm
+F 134,96,154
+C 255,236,223
 
 111111111111111111111111111
 100000000000000000000000001
