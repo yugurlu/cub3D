@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 15:43:54 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/06/10 14:00:54 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/06/12 12:32:24 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,6 +158,7 @@ void			fill_map(t_cub3d *cub3d);
 void			key_right(t_cub3d *cub3d);
 void			set_value(t_cub3d *cub3d);
 void			direction(t_cub3d *cub3d);
+int				line_check(t_cub3d *cub3d);
 int				wall_check(t_cub3d *cub3d);
 void			ray_casting(t_cub3d *cub3d);
 int				value_check(t_cub3d *cub3d);

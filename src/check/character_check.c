@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   character_check.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsamli <bsamli@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yugurlu <yugurlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 18:19:07 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/06/07 18:01:49 by bsamli           ###   ########.fr       */
+/*   Updated: 2023/06/12 16:14:17 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	character_check(t_cub3d *cub3d)
 			if (cub3d->map.map[i][j] == 'N' || cub3d->map.map[i][j] == 'S'
 				|| cub3d->map.map[i][j] == 'E' || cub3d->map.map[i][j] == 'W')
 			{
-				if (character_check1(cub3d, i, j))
+				if (i != 0 && cub3d->map.map[i + 1] && character_check1(cub3d, i, j))
 					return (1);
 				count++;
 			}

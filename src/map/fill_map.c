@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsamli <bsamli@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yugurlu <yugurlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 11:51:01 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/06/07 18:19:18 by bsamli           ###   ########.fr       */
+/*   Updated: 2023/06/12 14:33:47 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@ void	ft_strncopy(char *dest, char *src, int n)
 	int	i;
 
 	i = 0;
-	while (i < n)
+	while (i < n && src[i] != '\n')
 	{
-		dest[i] = src[i];
+		if (src[i] != '\n')
+			dest[i] = src[i];
 		i++;
 	}
 	dest[i] = 0;
@@ -49,12 +50,15 @@ void	fill_map(t_cub3d *cub3d)
 	cub3d->map.map = malloc(sizeof(char *) * (cub3d->map.height + 1));
 	while (line)
 	{
-		while (line && is_mapline(line))
+		if (is_mapline(line))
 		{
-			cub3d->map.map[i] = malloc(ft_strlen(line) + 1);
-			ft_strncopy(cub3d->map.map[i++], line, ft_strlen(line) - 1);
-			free(line);
-			line = get_next_line(fd);
+			while (line)
+			{
+				cub3d->map.map[i] = malloc(sizeof(char) * ft_strlen(line) + 1);
+				ft_strncopy(cub3d->map.map[i++], line, ft_strlen(line));
+				free(line);
+				line = get_next_line(fd);
+			}
 		}
 		if (line)
 			free(line);
