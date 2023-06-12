@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugurlu <yugurlu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bsamli <bsamli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 15:43:54 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/06/12 12:32:24 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/06/12 18:49:44 by bsamli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,6 +148,8 @@ void			key_a(t_cub3d *cub3d);
 void			key_d(t_cub3d *cub3d);
 void			camera(t_cub3d *cub3d);
 int				is_mapline(char *line);
+void			key_a1(t_cub3d *cub3d);
+void			key_d1(t_cub3d *cub3d);
 void			control(t_cub3d *cub3d);
 int				get_map(t_cub3d *cub3d);
 void			raydist(t_cub3d *cub3d);
