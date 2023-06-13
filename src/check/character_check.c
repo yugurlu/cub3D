@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   character_check.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsamli <bsamli@student.42.fr>              +#+  +:+       +#+        */
+/*   By: macos <macos@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 18:19:07 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/06/12 17:28:10 by bsamli           ###   ########.fr       */
+/*   Updated: 2023/06/13 22:33:41 by macos            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int	character_check1(t_cub3d *cub3d, int i, int j)
 
 int	character_check(t_cub3d *cub3d)
 {
+
 	int	i;
 	int	j;
 	int	count;
