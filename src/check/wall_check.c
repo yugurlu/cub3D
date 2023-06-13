@@ -6,7 +6,7 @@
 /*   By: macos <macos@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 16:05:35 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/06/13 22:12:36 by macos            ###   ########.fr       */
+/*   Updated: 2023/06/13 22:23:51 by macos            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	wall_check(t_cub3d *cub3d)
 		j = 0;
 		while(cub3d->map.map[i][j])
 		{
-			if(cub3d->map.map[i][j] == '0')
+			if(cub3d->map.map[i][j] == '0' || cub3d->map.map[i][j] == 'W' || cub3d->map.map[i][j] == 'E' || cub3d->map.map[i][j] == 'S'|| cub3d->map.map[i][j] == 'N')
 			{
 				if(is_okey(cub3d, i, j))
 					return 1;
