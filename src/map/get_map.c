@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugurlu <yugurlu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bsamli <bsamli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 16:51:21 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/06/14 12:04:54 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/06/14 14:09:43 by bsamli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,8 @@ int	get_map(t_cub3d *cub3d)
 		line = get_next_line(fd);
 	}
 	get_height(cub3d, 0);
-	fill_map(cub3d);
+	if (cub3d->map.height != -1)
+		fill_map(cub3d);
 	close(fd);
 	return (0);
 }

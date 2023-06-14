@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   value_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugurlu <yugurlu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bsamli <bsamli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 11:51:13 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/06/10 13:14:06 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/06/14 13:59:11 by bsamli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,9 @@ int	*open_files(t_cub3d *cub3d)
 
 	fd = malloc(16);
 	fd[0] = open(cub3d->map.no, R_OK);
-	printf("%s %d\n", cub3d->map.no, fd[0]);
 	fd[1] = open(cub3d->map.so, R_OK);
-	printf("%s %d\n", cub3d->map.so, fd[1]);
 	fd[2] = open(cub3d->map.we, R_OK);
-	printf("%s %d\n", cub3d->map.we, fd[2]);
 	fd[3] = open(cub3d->map.ea, R_OK);
-	printf("%s %d\n", cub3d->map.ea, fd[3]);
 	return (fd);
 }
 
