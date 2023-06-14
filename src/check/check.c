@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugurlu <yugurlu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bsamli <bsamli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 16:01:41 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/06/12 16:11:56 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/06/14 11:20:33 by bsamli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	map_check(t_cub3d *cub3d)
 	if (!cub3d->map.map && error(6))
 		return (1);
 	print_data(cub3d);
+	
 	if ((line_check(cub3d) || character_check(cub3d) || wall_check(cub3d))
 		&& error(7))
 		return (1);

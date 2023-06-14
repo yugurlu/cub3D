@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wall_check.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macos <macos@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bsamli <bsamli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 16:05:35 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/06/13 23:40:47 by macos            ###   ########.fr       */
+/*   Updated: 2023/06/14 11:23:10 by bsamli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,10 @@ int wall_check(t_cub3d *cub3d)
             if (cub3d->map.map[i][j] == '0' || cub3d->map.map[i][j] == 'W' || cub3d->map.map[i][j] == 'E' || cub3d->map.map[i][j] == 'S' || cub3d->map.map[i][j] == 'N')
             {
                 if (is_okey(cub3d, i, j))
-                    return 1;
+                    return (1);
             }
+            if(cub3d->map.map[i][j] != '0' && cub3d->map.map[i][j] != '1' && cub3d->map.map[i][j] != 'S' && cub3d->map.map[i][j] != 'W' && cub3d->map.map[i][j] != 'E' && cub3d->map.map[i][j] != 'N' && cub3d->map.map[i][j] != ' ')
+                return (1);
             j++;
         }
         i++;
