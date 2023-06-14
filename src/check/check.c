@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 16:01:41 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/06/12 16:11:56 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/06/14 13:28:51 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,5 @@ int	check(int ac, char **av, t_cub3d *cub3d)
 		return (1);
 	if (file_check(av[1], cub3d) || map_check(cub3d) || value_check(cub3d))
 		return (1);
-	print_data(cub3d);
 	return (0);
 }

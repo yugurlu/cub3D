@@ -2,7 +2,7 @@
 
 NAME = cub3D
 FRAEMWORKS = -framework OpenGL -framework AppKit
-FLAGS = -Wall -Wextra -Werror #-fsanitize=address -g
+FLAGS = -Wall -Wextra -Werror #-g -fsanitize=address 
 
 SRC = gnl/get_next_line.c \
     gnl/get_next_line_utils.c \

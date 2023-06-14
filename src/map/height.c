@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   height.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsamli <bsamli@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yugurlu <yugurlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 11:18:40 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/06/07 18:21:08 by bsamli           ###   ########.fr       */
+/*   Updated: 2023/06/14 11:45:55 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	get_height(t_cub3d *cub3d, int height)
 	{
 		if (is_mapline(line))
 		{
-			while (line && is_mapline(line))
+			while (line)
 			{
 				height++;
 				free(line);

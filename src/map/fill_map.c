@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 11:51:01 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/06/12 14:33:47 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/06/14 13:29:51 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,16 @@ void	ft_strncopy(char *dest, char *src, int n)
 	dest[i] = 0;
 }
 
-int	check_fill_map(t_cub3d *cub3d)
+int	check_fill_map(t_cub3d *cub3d, int *fd, char **line, int *i)
 {
+	*i = 0;
+	*fd = open(cub3d->map.map_name, O_RDONLY);
+	*line = get_next_line(*fd);
 	if (cub3d->map.height == -1)
 	{
 		cub3d->map.map = NULL;
+		close(*fd);
+		free(line);
 		return (1);
 	}
 	return (0);
@@ -42,10 +47,8 @@ void	fill_map(t_cub3d *cub3d)
 	int		fd;
 	char	*line;
 
-	i = 0;
-	fd = open(cub3d->map.map_name, O_RDONLY);
-	line = get_next_line(fd);
-	if (check_fill_map(cub3d))
+	line = NULL;
+	if (check_fill_map(cub3d, &fd, &line, &i))
 		return ;
 	cub3d->map.map = malloc(sizeof(char *) * (cub3d->map.height + 1));
 	while (line)
@@ -65,5 +68,4 @@ void	fill_map(t_cub3d *cub3d)
 		line = get_next_line(fd);
 	}
 	cub3d->map.map[i] = NULL;
-	close(fd);
 }

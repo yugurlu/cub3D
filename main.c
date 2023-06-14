@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 15:43:30 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/06/10 12:59:52 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/06/14 13:31:15 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,5 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	game(cub3d);
+	system("leaks cub3D");
 }
