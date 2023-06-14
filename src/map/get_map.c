@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 16:51:21 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/06/14 12:04:54 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/06/14 14:45:37 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	initialize_variables(t_cub3d *cub3d)
 	cub3d->map.floor_color = -1;
 	cub3d->map.ceiling_color = -1;
 	cub3d->map.height = -1;
+	cub3d->map.error = 0;
 }
 
 void	get_rgb(char **line, t_cub3d *cub3d)
@@ -37,7 +38,7 @@ void	get_rgb(char **line, t_cub3d *cub3d)
 
 	i = 0;
 	splited_line = ft_split(line[1], ',');
-	while (splited_line[i])
+	while (splited_line[i] && splited_line[i][0] != '\n')
 		i++;
 	if (i == 3 && line[0][0] == 'F')
 	{
@@ -53,8 +54,7 @@ void	get_rgb(char **line, t_cub3d *cub3d)
 		cub3d->map.c[2] = ft_atoi(splited_line[2]);
 		rgb_to_hexadecimal(cub3d);
 	}
-	else
-		cub3d->map.error = 1;
+	rgb_control(cub3d, splited_line[0], splited_line[1], splited_line[2]);
 	free_split(splited_line);
 }
 
@@ -79,8 +79,8 @@ void	parse_line(char *line, t_cub3d *cub3d)
 			cub3d->map.we = ft_strdup(back_slash_n[0]);
 		else if (ft_strncmp(splited_line[0], "EA", 2) == 0)
 			cub3d->map.ea = ft_strdup(back_slash_n[0]);
-		else if (ft_strncmp(splited_line[0], "F", 1)
-			|| ft_strncmp(back_slash_n[0], "C", 1))
+		else if (ft_strncmp(splited_line[0], "F", 1) == 0
+			|| ft_strncmp(splited_line[0], "C", 1) == 0)
 			get_rgb(splited_line, cub3d);
 		free_split(back_slash_n);
 	}
@@ -102,7 +102,8 @@ int	get_map(t_cub3d *cub3d)
 		line = get_next_line(fd);
 	}
 	get_height(cub3d, 0);
-	fill_map(cub3d);
+	if (cub3d->map.height != -1)
+		fill_map(cub3d);
 	close(fd);
 	return (0);
 }

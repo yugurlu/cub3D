@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 12:39:11 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/06/10 12:54:04 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/06/14 14:26:29 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ void	user_location(t_cub3d *cub3d)
 				cub3d->rc.posx = x;
 				cub3d->rc.posy = y;
 				cub3d->map.user_type = cub3d->map.map[x][y];
-				printf("\n\n%c\n\n", cub3d->map.user_type);
 				return ;
 			}
 			y++;

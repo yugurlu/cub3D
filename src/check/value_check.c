@@ -6,7 +6,7 @@
 /*   By: yugurlu <yugurlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 11:51:13 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/06/10 13:14:06 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/06/14 14:39:55 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	error(int type)
 	else if (type == 2)
 		printf("%sImage file not found!\nError\n", RED);
 	else if (type == 3)
-		printf("%sMissing RGB value!\nError\n", RED);
+		printf("%sWrong RGB value!\nError\n", RED);
 	else if (type == 4)
 		printf("%sRGB values must be less than 255!\nError\n", RED);
 	else if (type == 5)
@@ -41,13 +41,9 @@ int	*open_files(t_cub3d *cub3d)
 
 	fd = malloc(16);
 	fd[0] = open(cub3d->map.no, R_OK);
-	printf("%s %d\n", cub3d->map.no, fd[0]);
 	fd[1] = open(cub3d->map.so, R_OK);
-	printf("%s %d\n", cub3d->map.so, fd[1]);
 	fd[2] = open(cub3d->map.we, R_OK);
-	printf("%s %d\n", cub3d->map.we, fd[2]);
 	fd[3] = open(cub3d->map.ea, R_OK);
-	printf("%s %d\n", cub3d->map.ea, fd[3]);
 	return (fd);
 }
 
@@ -73,6 +69,8 @@ int	value_check(t_cub3d *cub3d)
 	if ((cub3d->map.f[0] < 0 || cub3d->map.f[1] < 0 || cub3d->map.f[2] < 0
 			|| cub3d->map.c[0] < 0 || cub3d->map.c[1] < 0
 			|| cub3d->map.c[2] < 0) && error(5) && my_free(fd))
+		return (1);
+	if (cub3d->map.error == 1 && error(3) && my_free(fd))
 		return (1);
 	free(fd);
 	return (0);
