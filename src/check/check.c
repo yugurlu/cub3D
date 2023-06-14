@@ -3,37 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugurlu <yugurlu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bsamli <bsamli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 16:01:41 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/06/14 13:28:51 by yugurlu          ###   ########.fr       */
+/*   Updated: 2023/06/14 14:55:31 by bsamli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "../../cub3d.h"
-
-void	print_data(t_cub3d *cub3d)
-{
-	int	i;
-
-	printf("NO: %s\n", cub3d->map.no);
-	printf("SO: %s\n", cub3d->map.so);
-	printf("WE: %s\n", cub3d->map.we);
-	printf("EA: %s\n", cub3d->map.ea);
-	printf("F: %d,%d,%d\n", cub3d->map.f[0], cub3d->map.f[1], cub3d->map.f[2]);
-	printf("C: %d,%d,%d\n", cub3d->map.c[0], cub3d->map.c[1], cub3d->map.c[2]);
-	printf("\n\n");
-	i = 0;
-	while (cub3d->map.map[i])
-		printf("%s\n", cub3d->map.map[i++]);
-}
 
 int	map_check(t_cub3d *cub3d)
 {
 	get_map(cub3d);
 	if (!cub3d->map.map && error(6))
 		return (1);
-	print_data(cub3d);
 	if ((line_check(cub3d) || character_check(cub3d) || wall_check(cub3d))
 		&& error(7))
 		return (1);

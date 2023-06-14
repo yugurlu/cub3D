@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macos <macos@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yugurlu <yugurlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 15:43:54 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/06/13 22:33:30 by macos            ###   ########.fr       */
+/*   Updated: 2023/06/14 14:16:29 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,4 +176,6 @@ void			rgb_to_hexadecimal(t_cub3d *cub3d);
 int				close_window(int key, void *cub3d);
 void			get_height(t_cub3d *cub3d, int height);
 int				check(int ac, char **av, t_cub3d *cub3d);
+void			rgb_control(t_cub3d *cub3d, char *value1, char *value2,
+					char *value3);
 #endif
