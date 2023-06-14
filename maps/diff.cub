@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 NO src/assets/color1.xpm
 F 134,96,154
 
@@ -16,3 +17,26 @@ SO src/assets/color2.xpm
 10001 10101
 100W01 10001
 11111111111
+=======
+F 134,96,154
+
+
+
+SO src/assets/color2.xpm
+C 11,123,
+EA src/assets/color4.xpm
+WE src/assets/color3.xpm
+NO src/assets/color1.xpm
+
+
+
+
+1111111111111
+1000001100011
+1111100100111
+1000001110001
+100W000100001
+1000000000001
+1111111111111
+
+>>>>>>> be60fbea68f379a99205b4ec08ab37db529f6dfe
