@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   character_check.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macos <macos@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yugurlu <yugurlu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 18:19:07 by yugurlu           #+#    #+#             */
-/*   Updated: 2023/06/13 22:44:47 by macos            ###   ########.fr       */
+/*   Updated: 2023/06/14 13:06:27 by yugurlu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ int	character_check(t_cub3d *cub3d)
 	int	j;
 	int	count;
 
-	i = 0;
+	i = -1;
 	count = 0;
-	while (cub3d->map.map[i])
+	while (cub3d->map.map[++i])
 	{
 		j = 0;
 		while (cub3d->map.map[i][j])
@@ -60,13 +60,13 @@ int	character_check(t_cub3d *cub3d)
 			if (cub3d->map.map[i][j] == 'N' || cub3d->map.map[i][j] == 'S'
 				|| cub3d->map.map[i][j] == 'E' || cub3d->map.map[i][j] == 'W')
 			{
-				if (i != 0 && cub3d->map.map[i + 1] && character_check1(cub3d, i, j))
+				if (i != 0 && cub3d->map.map[i + 1]
+					&& character_check1(cub3d, i, j))
 					return (1);
 				count++;
 			}
 			j++;
 		}
-		i++;
 	}
 	if (count != 1)
 		return (1);
